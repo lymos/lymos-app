@@ -1,0 +1,19 @@
+
+<foreach name="product" item="rs">
+    <li class="product_slider_item">
+        <div class="product_slider_item_pic prodict-img">
+            <a href="/productinfo/{$rs['item_id']}" title="{$rs['item_title']}">
+                <img src="/image_create.php?big_img={$rs['image_sku']}&item_id={$rs['item_id']}&size=product_list" alt="{$rs['item_title']}">
+            </a>
+        </div>
+        <!--
+        <p class="product_slider_color">
+        </p>
+        -->
+        <div class="product_slider_item_txt prodict-text">
+            <h3>
+                <a href="/productinfo/{$rs['item_id']}" title="{$rs['item_title']}">{$rs['item_title']}</a>
+            </h3>
+        </div>
+    </li>
+</foreach>

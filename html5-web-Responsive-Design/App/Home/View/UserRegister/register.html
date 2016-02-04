@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="Keywords" content="Womdee">
+        <meta name="Description" content="We created tackling first-world problems like low battery and slow data access to make life better">
+        <title>womdee</title>
+        <link rel="stylesheet" type="text/css" href="/css/member.css" />
+    </head>
+    <body>
+    <include file="Public:top" />
+    <div class="wrapper_block">
+        <div class="sign_bar wraps">
+            <div class="padding_bar">
+                <div class="other_login">
+                    <p class="why_sign_up">{:L('REGISTER_TITLE_INFO')}</p>
+                    <p class="login_title">{:L('LOGIN_TITLE_OTHER')}</p>
+                    <p>
+                        <span class="lg_span">
+                            <a class="lg_btn" href="{$google_login_url}"><span class="lg_ico gg_ico"></span><span class="lg_btn_txt">{:L('LOGIN_WITH_GOOGLE')}</span></a>
+                            <br>
+                            <em>{:L('LOGIN_WITH_GOOGLE')}</em>
+                        </span>
+                        <span class="lg_span">
+                            <a class="lg_btn" href="{$fb_login_url}"><span class="lg_ico fb_ico"></span><span class="lg_btn_txt">{:L('LOGIN_WITH_FACEBOOK')}</span></a>
+                            <br>
+                            <em>{:L('LOGIN_WITH_FCAEBOOK_INFO')}</em>
+                        </span>
+                    </p>
+                </div>
+                <form method="post" id="reg_form" action="{:U('index.php/UserRegister/doRegister')}" class="form sign_form">
+                    <p class="login_title">{:L('SIGN_IN_INFORMATION')}</p>
+                    <p>
+                        <label>{:L('TEXT_YOUR_EMAIL')}</label>
+                        <br>
+                        <input type="text" id="email" name="email" class="txt" lang="email" notnull="1">
+                        <label class="ErrorText">{:L('ERROR_EMAIL')}</label>
+                        <label class="Err error_user_msg">{:L('EMAIL_EXISTS')}</label>
+                    </p>
+                    <p>
+                        <label>Username:<br><em class="form_info">{:L('FORMAT_USERNAME')}</em></label><br>
+                        <input type="text" id="username" name="username" class="txt" lang="username" notnull="1">
+                        <label class="ErrorText">{:L('ERROR_USERNAME')}</label>
+                    </p>
+                    <p>
+                        <label>{:L('TEXT_CREATE_PASSOWRD')}<br><em class="form_info">{:L('FORMAT_PASSWORD')}</em></label>
+                        <br>
+                        <input type="password" autocomplete="off" id="password" name="password" lang="password" class="txt" notnull="1">
+                        <label class="ErrorText">{:L('ERROR_PASSWORD')}</label>
+                    </p>
+                    <p>
+                        <label>{:L('CONFIRM_PASSWORD')}</label><br>
+                        <input type="password" autocomplete="off" id="re_password" name="re_password" class="txt" lang="re_password">
+                        <label class="ErrorText">{:L('ERROR_CONFIRM_PASSWORD')}</label>
+                    </p>
+                    <p></p>
+                    <p></p>
+                    <div class="line_dashed"></div>
+                    <p></p>
+                    <p><span>{:L('TEXT_GENDER')}</span>
+                        <span class="form_a"><span>{:L('TEXT_MALE')}</span> <input type="radio" value="0" checked="" name="sex"></span> &nbsp; <span><span>{:L('TEXT_FEMALE')}</span> <input type="radio" value="1" name="sex"></span>
+                    </p>
+                    <p>
+                        <span class="halfwidth_form">
+                            <span>{:L('TEXT_BIRTH')}</span>
+                            <p>
+                                <select id="birthday_month" name="birthday_month" class="form-select">
+                                    <option value="">{:L('TEXT_MONTH')}</option>
+                                    <option value="1">{:L('TEXT_JANUARY')}</option>
+                                    <option value="2">{:L('TEXT_FEBRUARY')}</option>
+                                    <option value="3">{:L('TEXT_MARCH')}</option>
+                                    <option value="4">{:L('TEXT_APRIL')}</option>
+                                    <option value="5">{:L('TEXT_MAY')}</option>
+                                    <option value="6">{:L('TEXT_JUNE')}</option>
+                                    <option value="7">{:L('TEXT_JULY')}</option>
+                                    <option value="8">{:L('TEXT_AUGUST')}</option>
+                                    <option value="9">{:L('TEXT_SEPTEMBER')}</option>
+                                    <option value="10">{:L('TEXT_OCTOBER')}</option>
+                                    <option value="11">{:L('TEXT_NOVEMBER')}</option>
+                                    <option value="12">{:L('TEXT_DECEMBER')}</option>
+                                </select>
+                                <p class="focus_input"><input type="text" maxlength="2" name="birthday_day" class="stxt" placeholder="{:L('TEXT_DAT')}"></p>
+                                <p class="focus_input"><input type="text" maxlength="4" name="birthday_year" class="stxt" placeholder="{:L('TEXT_YEAR')}"></p>
+                            </p> 
+                        </span>
+                    </p>
+														
+                    <p><label>{:L('TEXT_LOCATION')}</label><br>
+                        <select name="country" class="txt">
+                            <foreach name="country_data" item="country_name">
+                                <option value="{$key}" label="{$country_name}">{$country_name}</option>
+                            </foreach>
+                        </select>
+                    </p>
+                    <div class="line_dashed"></div>
+                    <p>
+                        <!--
+                        {:L('TEXT_CAPTCHA_INFO')}<br>
+                        <input type="text" class="inputBg" id="captcha" name="captcha" size="8" notnull="1">
+                        <img title="Click to refresh image." style="cursor: pointer;vertical-align: middle" class="btn_captcha_refresh" alt="{:L('BTN_REFRESH')}" src="{:U('UserRegister/getCaptcha/score/1111')}" id="captcha-img">
+                        -->
+                    </p>
+
+                    <!--
+                    <p><input type="checkbox" id="agree" name="agreement"> I agree to the Womdee <a title="Terms of Service" href="/" target="_blank" class="fddd">Terms of Service</a> and <a target="_blank" title="Privacy Policy" href="/">Privacy Policy</a></p>
+                    -->
+                    <p><span class="red" id="error_msg"></span></p>
+                    <p>
+                        <input type="button" id="submit_btn" class="btn sb_btn btn_register" value="{:L('BTN_CREATE')}">
+                        <!--
+                        <span id="form_loading" style="display:none;"><img src="/image/loading.gif"></span>
+                        -->
+                    </p>
+                    <div class="login_up">{:L('TEXT_HAS_ACCOUNT')}<a href="/login.html" class="form_a">{:L('TEXT_LOGIN_NOW')}</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <include file="Public:foot" />

@@ -1,0 +1,55 @@
+<div class="footer_top clearfix">
+    <div class="block">
+        {:L('FOOT_TIP_INFO')}
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="wrap">
+        <div class="block clearfix">
+            <div class="footer_link clearfix">
+                <dl>
+                    <dt>{:L('LABEL_BEST_SELLERS')}</dt>
+                    <dd><a href="/">Astro Mini (Black)</a></dd>
+                    <dd><a href="/">40W Wall Charger</a></dd>
+                    <dd><a href="/">Lightning Cable</a></dd>
+                    <dd><a href="/">24W Car Charger</a></dd>
+                </dl>
+                <dl>
+                    <dt>{:L('LABEL_ABOUT_TITLE')}</dt>
+                    <dd><a href="/about-us.html">{:L('LABEL_ABOUT_TITLE')}</a></dd>
+                    <dd><a href="/">{:L('LABEL_PRESS_CENTER')}</a></dd>
+                    <dd><a href="/contact-us.html">{:L('LABEL_CONTACT_US')}</a></dd>
+                    <dd><a href="/business.html">{:L('LABEL_WHOLESALE')}</a></dd>
+                </dl>
+                <dl>
+                    <dt>{:L('LABEL_SUPPORT')}</dt>
+                    <dd><a href="/">{:L('LABEL_DRIVERS')}</a></dd>
+                    <dd><a href="/">{:L('LABEL_SERVICE')}</a></dd>
+                    <dd><a href="/">{:L('LABEL_POLICY')}</a></dd>
+                    <dd><a href="/">{:L('LABEL_TERMS_SERVICE')}</a></dd>
+                    <dd><a href="/">{:L('LABEL_FAQ')}</a></dd>
+                </dl>
+            </div>
+            <div class="footer_info">
+                <div class="show_language">
+                    <p>{:L('LABEL_SELECT_LANG')}</p>
+                    <div class="language btn_language">
+                        {$lang_data['listing_site_country']}
+                        <ul class="language_list">
+                            <volist name="site_datas" id="site_vall">
+                                <li><a href="javascript:void(0);" onclick="ChangeLanguage('{$site_vall.listing_site_language}','{$site_vall.listing_site_name}');">{$site_vall['listing_site_country']}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wom-copyright" style="border-top:1px solid #cccccc;">
+            <p>Copyright © 2016 Womdee Technology Co., Ltd.</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery19.js"></script>
+<script type="text/javascript" src="/js/basic.js"></script>
+</body>
+</html>

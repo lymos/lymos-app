@@ -1,0 +1,176 @@
+
+/*************头部样式**************/
+.nav{
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #fff, #e8e8e8) repeat scroll 0 0;
+    box-shadow: 0 2px 6px #bbb;color: #757575;font-size: 18px;height: 130px;left: 0;position: fixed;right: 0;top: 0;z-index: 1000;
+}
+.navWrap {height: 80px;margin: 0 auto;max-width: 1600px;z-index: 1000;}
+.navLogo{float: left;margin-top: 25px;margin-left: 30px;}
+.navRight {float: right;margin-top: 61px;margin-right: 20px;position: relative !important;}
+.navNotLogin {position: relative;top: -2px;}
+.navNotLogin a:hover{text-decoration: underline;}
+
+.navMain {
+    float: left;
+    margin-left: 80px;
+    z-index: 1000;
+}
+.navMain li{
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 130px;
+    text-align: center;
+    display: inline-block;
+}
+.nav-sub1 {
+    display: none;
+    height: 65px;
+    left: 0;
+    position: absolute;
+    top: 130px;
+    transition: all 0.3s ease 0s;
+    white-space: nowrap;
+}
+
+/*************底部样式**************/
+
+/**************首页底部样式**********/
+.index_about {
+    background: #f3f3f3 url("/image/index_about_bg.jpg") repeat-x scroll center top;
+    padding: 40px 0;
+    width:100%;
+}
+.index_about_follow{
+    float: left;
+    width: 300px;
+    text-align: center;
+}
+.index_about_follow a {
+    float: left;
+    background-color: #c8c8c8;
+    box-shadow: 2px 2px 2px #999;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    padding: 5px;
+    text-decoration: none;
+    width: 40px;
+}
+.fb,.tw,.yb{background-image: url("/image/sprite.png");}
+.fb {background-position: 0 -121px;}
+.tw {background-position: -59px -121px;}
+.yb {background-position: -118px -121px;}
+.index_about_follow a.fb:hover {background-color: #2854a4;}
+.index_about_follow a.tw:hover {background-color: #24badd;}
+.index_about_follow a.yb:hover {background-color: #db4747;}
+.instagram {background-image: url("/image/icon-instagram-30x30.svg");background-position: 50% 50%;background-repeat: no-repeat;background-size: auto auto;}
+.instagram:hover{background-color: #315d88;}
+.index_about_txt:hover {background: #fff none repeat scroll 0 0;text-decoration: none;}
+
+.foot_banner{
+    background: #b9b6ac none repeat scroll 0 0;
+    padding: 10px 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.footer{
+    background: #e5e4e0 url("/image/footerbg.gif") repeat-x scroll center top;
+    color: #222;
+}
+.wrap{
+    margin: 0 auto;
+    position: relative;
+}
+.block{
+    margin: 0 10%;
+}
+.footer_link dl {
+    float: left;
+    margin: 0px;
+    margin-right: 5%;
+    padding: 40px 10px 0;
+}
+.footer_link dl dt {
+    font-size: 130%;
+    padding-bottom: 20px;
+}
+.footer_link dl dd {
+    margin: 0px;
+    padding: 5px 0;
+    line-height: 16px;
+}
+.footer_link dl dd:hover{
+    color:#1572a8;
+    text-decoration: underline;
+}
+.footer_info {
+    float: right;
+    padding-top: 40px;
+    display: block;
+}
+.language {
+    background: #fff url("/image/lg.png") no-repeat scroll 150px top;
+    color: #6f6f6f;
+    cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    text-indent: 20px;
+    width: 170px;
+}
+.language ul {
+    display: none;
+    left: 0;
+    margin: 7px 0 0;
+    position: absolute;
+    top: 19px;
+    width: 170px;
+    z-index: 999;
+}
+.language ul li a {
+    color: #6f6f6f;
+    display: block;
+    height: 30px;
+    padding: 5px 0;
+}
+.language ul li a:hover {
+    background: #ddd none repeat scroll 0 0;
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* PC客户端或大屏幕设备: 1028px 至更大 */
+@media only screen and (min-width: 1029px) {
+    .big_block {margin: 0 15%;}
+    .index_about_txt {float: right;line-height: 1.6;padding: 20px;width: 52%;margin-top: 25px;}
+    .footer_link dl:hover {
+        background: #eae9e6 url("/image/footerhoverbg.gif") repeat-x scroll center top;
+    }
+    .footer_link{
+        float: left;
+        border-right: 2px dotted #c3c3c3;
+        min-width: 70%;
+        padding-bottom: 50px;
+    }
+}
+
+/* 平板之类的宽度 1024 以下设备 */
+@media only screen and (min-width: 321px) and (max-width: 1024px) {
+
+}
+
+/* 手机等小屏幕手持设备 */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .footer_link{
+        float: left;
+        padding-bottom: 50px;
+    }
+}
+
+/* 竖屏 */
+@media screen and (orientation:portrait) and (max-width: 720px) {
+    /*样式*/
+    .big_block {margin: 0 4%;}
+}
