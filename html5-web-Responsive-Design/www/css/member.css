@@ -412,6 +412,8 @@ form a,.member_notice a,.member_side a,.sw_btn,.sw_pw_btn,.posts_title a,.messag
 .gg_ico {
 	background-color: #007eff;
 	background-position: 0 -60px;
+	#background-image: url("/image/google_login.png");
+	#background-repeat: no-repeat;
 }
 
 .fb_ico {

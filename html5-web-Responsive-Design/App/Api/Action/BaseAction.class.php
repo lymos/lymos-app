@@ -136,8 +136,8 @@ class BaseAction extends Action {
 
         //判断是否存在，存在的话，删除再添加，不存在 直接添加
         if (file_exists($save_dir.$filename)) {
-//            unlink($save_dir.$filename);
-            return false;
+            unlink($save_dir.$filename);
+//            return false;
         }
 
         //获取远程文件所采用的方法

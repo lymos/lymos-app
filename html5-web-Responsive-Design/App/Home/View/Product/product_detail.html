@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="Keywords" content="WOMDEE">
         <meta name="Description" content="We created tackling first-world problems like low battery and slow data access to make life better">
-        <title>womdee product</title>
+        <meta name="title" content="{$product_baseinfo['item_title']}">
+        <title>{$product_baseinfo['item_title']}</title>
         <link rel="stylesheet" type="text/css" href="/css/inner.css" />
     </head>
     <body>
@@ -31,38 +32,31 @@
         </div>
         <div temscope="" class="product_item clearfix">
             <div class="product_item_pic_wrapper">
-                <div class="pic_base">
+                <div class="pic_base" id="touch-move">
                     <volist name="product_img" id="img_val">
-                    
+
                         <img style="cursor: move;"  sid="{$key}" style="margin: 0 auto;" class="show-big <if condition="$key eq 0">active</if>" src="/image_create.php?big_img={$img_val}&item_id={$item_id}&size=product_detail" id="pic_{$key}" itemprop="photo">
-                        <div class="lg-img" id="lg-img-{$key}">
-                            <img src="/image_create.php?big_img={$img_val}&item_id={$item_id}&size=product_detail">
-                        </div>
-                       
                     </volist>
                 </div>
-                <div class="pic_small" style="padding-left: 20px; padding-right: 20px; width: 270px; height: 52px;">
-                    <label class="img-prev" style="position: absolute; left: 0; top: 10px; height: 72px; background-color: #ccc; z-index: 12; cursor: pointer; padding-top: 30px; color: #a15d03; box-sizing: border-box;"><<</label>
-                    <div class="img-wrap" style="position: absolute; left: 20px; box-sizing: border-box; ">
+                <div class="pic_small_img">
+                    <label class="img-prev" ><</label>
+                    <div class="img-wrap">
                     <volist name="product_img" id="img_val">
-                        <span style="margin-bottom: 10px;" <if condition="$key eq 0">class="hover"</if> sid="pic_{$key}"><b></b><img src="/image_create.php?big_img={$img_val}&item_id={$item_id}&size=detail_min"></span>
-
+                                <span <if condition="$key eq 0">class="hover"</if> sid="pic_{$key}"><!--<b></b>--><img src="/image_create.php?big_img={$img_val}&item_id={$item_id}&size=detail_min"></span>
                     </volist>
                     </div>
                     <input class="img-num" type="hidden" value="<php>echo count($product_img);</php>">
-                    <label class="img-next" style="position: absolute; right: 0; top: 10px; height: 72px; background-color: #ccc; z-index: 12; cursor: pointer; padding-top: 30px; color: #a15d03; box-sizing: border-box;">>></label>
+                    <label class="img-next">></label>
                 </div>
             </div>
             <div class="product_item_wrapper">
                 <h3 itemprop="itemreviewed" class="s_title">{$product_baseinfo['item_title']}</h3>
                 <ul class="product_item_wrapper_info">
-                    <li itemscope="" itemprop="rating" class="product_items_li quick_li">
-                        Asin: {$product_list['item_code']}
-                    </li>
+
                     <li itemscope="" itemprop="rating" class="product_items_li quick_li">
                         <div id="fixed" class="star"><div></div></div>
                         <span class="q_reviews">
-                            Score : <em itemprop="average">4.7</em>&nbsp;&nbsp;&nbsp;(<a title="See all reviews" href="javascript:void(0);" class="quick_reviews"><em itemprop="count">536</em> Customer Reviews</a>)
+                            Score : <em itemprop="average">{$reviews_agv}</em>&nbsp;&nbsp;&nbsp;(<a title="See all reviews" href="#ptop" class="quick_reviews"><em itemprop="count">{$reviews_count}</em> Customer Reviews</a>)
                         </span>
                         <p class="q_infos">
                             <span><a class="quick_write" href="#review_form">Write a review</a></span>
@@ -77,15 +71,18 @@
                                 <foreach name="attr_val" item="attr_row">
                                     <dd style="position: relative;">
                                     <if condition="strtoupper($attr_key) eq 'COLOR'">
-                                        <em class="black_bg choose_color btn_choose_color" style="background:{$attr_row}" title="{$attr_row}" ></em>
+                                        <em class="black_bg choose_color btn_choose_color" style="background:<php>echo str_replace(' ', '', $attr_row);</php>" title="{$attr_row}" type="color"></em>
                                         <else />
-                                        <em class="black_bg choose_color btn_choose_color">{$attr_row}</em>
+                                        <em class="black_bg choose_color btn_choose_color" type="size">{$attr_row}</em>
                                     </if>
                                     </dd>
                                 </foreach>
                             </dl>
                         </li>
                     </foreach>
+                    <li itemscope="" itemprop="rating" class="product_items_li">
+                        Asin: <span class="asin-code"></span>
+                    </li>
                     <!--                    <li class="product_items_li">
                                             <dl class="cyc" id="market_list">
                                                 <dt>Choose your country:</dt>
@@ -94,12 +91,22 @@
                                                 </volist>
                                             </dl>
                                         </li>-->
-                    <li class="product_items_li">
+                    <li class="product_items_li Err">{:L('NO_THIS_PRODUCT')}</li>
+                    <li class="product_items_li ErrorText">{:L('CHOOSE_ATTR')}</li>
+                    <li class="product_items_li btn-buy">
                     <notempty name="site_data">
-                        <a onClick="turn_url(this)" href="{$site_data['listing_site_url']}/dp/{$product_list['item_code']}" target="_blank" rel="nofollow" id="buynow" class="buyamazon piwi_btn">{:L('BUY_AMAZON')}</a>
+                        <a onClick="trun_url(this)" s-href="{$site_data['listing_site_url']}/dp/{$product_list['item_code']}" href="javascript: void(0);" rel="nofollow" id="buynow" class="buyamazon piwi_btn"><php>$site_len = strlen($site_data['listing_site_url']);</php>Buy At {$site_data['listing_site_url']|substr=12,$site_len}</a>
                         <else />
                         <span class="buyamazon_no piwi_btn">{:L('BUY_AMAZON')}</span>
+
                     </notempty>
+                    </li>
+                    <li class="product_items_li">
+                        <div class="share-link" style="box-sizing: border-box; padding-left: 68px;">
+                            <label style="position: absolute; top: 12px; left: 0;">Share To: </label>
+                            <a class="gg" href="https://plus.google.com/share?url=<php>echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; </php>" target="_blank" style="margin-right: 12px;"><img style="height: 40px; width: 40px;" src="/image/google_share.png"></a>
+                            <a class="fb" href="http://www.facebook.com/share.php?u=<php>echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; </php>" target="_blank"><img style="height: 40px; width: 40px;" src="/image/facebook_share.png"></a>
+                        </div>
                     </li>
                     <li class="product_items_li">
                         <div class="addthis_toolbox addthis_default_style">
@@ -117,10 +124,10 @@
     <div id="hrefTag"></div>
     <div class="wrapper_box clearfix">
         <ul class="product_slider_nav">
-            <li id="dpTitle2" class="product_slider_nav_li product_info_btn hover">
+            <li id="dpTitle2" class="product_slider_nav_li product_info_btn <if condition='$is_review_refer eq 1'>hover</if>">
                 <span>Product Description</span>
             </li>
-            <li id="reviewsTitle2" class="product_slider_nav_li customer_reviews_btn">
+            <li id="reviewsTitle2" class="product_slider_nav_li customer_reviews_btn <if condition='$is_review_refer eq 2'>hover</if>">
                 <span>Customer Reviews</span>
             </li>
             <li id="faqTitle2" class="product_slider_nav_li">
@@ -132,115 +139,131 @@
         </ul>
         <div class="wrap">
             <h4 id="dpTitle" class="small_screen_title">Product Description</h4>
-            <div class="wrapper_block prdouct_descirption_wrapper clearfix show_block">
+            <div class="wrapper_block prdouct_descirption_wrapper clearfix <if condition='$is_review_refer eq 1'>show_block</if>">
                 <div class="pd_item_box content_text clearfix">
+                    <div style="margin-bottom: 16px; padding-left: 12px; box-sizing: border-box;">
+                        <php>
+                            $short_ar = explode('<br>', $product_baseinfo['item_short_description']);
+                        </php>
+                        <ul style="list-style-type: disc;">
+                        <foreach name="short_ar" item="short_val">
+                            <notempty name="short_val">
+                                <li style="list-style-type: disc; font-size: 14px;">{$short_val}</li>
+                            </notempty>
+                        </foreach>
+                        </ul>
+                    </div>
                     <div class="pd_item_txt_content">{$product_baseinfo['item_description']}</div>
                 </div>
             </div>
             <h4 class="small_screen_title" id="review_screen_title">Customer Reviews</h4>
-            <div class="wrapper_block borderTop reviews_wrapper clearfix">
+            <div class="wrapper_block borderTop reviews_wrapper clearfix <if condition='$is_review_refer eq 2'>show_block</if>" <if condition='$is_review_refer eq 2'>style="display: block"</if>>
                 <div class="reviews block">
                     <div class="reviews_info_box clearfix">
+                        <span class="loading pc-review">
+                            <img src="/image/loading.gif">
+                        </span>
                         <div id="reviews_box">
-                            <table cellspacing="0" cellpadding="0" class="table">
-                                <tbody class="item_box_list">
-                                <foreach name="reviews" item="rs">
-                                    <tr>
-                                        <th width="2%" class="reviewer">
-                                    <div class="reviewer_box">
-                                        <p class="reviewer_pic default_reviewer_pic"></p>
-                                        <div class="reviewer_info">
-                                            <div class="reviewer_name">{$user_data[$rs['review_create_userid']]}</div>
-                                            <div class="reviews_star"><div id="fixed_311215"></div></div>
-                                        </div>
-                                    </div>
-                                    </th>
-                                    <td width="98%" class="reviews_details">
-                                        <ul>
-                                            <li class="reviews_details_title">
-                                                {$rs['review_title']}
-                                            </li>
-                                            <li class="review_rate">
-                                                <div class="star">
-                                                    <switch name="rs['review_rate']">
-                                                    <case value="5">
-                                                        <span class="active" star="1"></span>
-                                                        <span class="active" star="2"></span>
-                                                        <span class="active" star="3"></span>
-                                                        <span class="active" star="4"></span>
-                                                        <span class="active" star="5"></span>
-                                                    </case>
-                                                    <case value="4">
-                                                        <span class="active" star="1"></span>
-                                                        <span class="active" star="2"></span>
-                                                        <span class="active" star="3"></span>
-                                                        <span class="active" star="4"></span>
-                                                        <span class="" star="5"></span>
-                                                    </case>
-                                                    <case value="3">
-                                                        <span class="active" star="1"></span>
-                                                        <span class="active" star="2"></span>
-                                                        <span class="active" star="3"></span>
-                                                        <span class="" star="4"></span>
-                                                        <span class="" star="5"></span>
-                                                    </case>
-                                                    <case value="2">
-                                                        <span class="active" star="1"></span>
-                                                        <span class="active" star="2"></span>
-                                                        <span class="" star="3"></span>
-                                                        <span class="" star="4"></span>
-                                                        <span class="" star="5"></span>
-                                                    </case>
-                                                    <case value="1">
-                                                        <span class="active" star="1"></span>
-                                                        <span class="" star="2"></span>
-                                                        <span class="" star="3"></span>
-                                                        <span class="" star="4"></span>
-                                                        <span class="" star="5"></span>
-                                                    </case>
-                                                    <case value="0">
-                                                        <span class="" star="1"></span>
-                                                        <span class="" star="2"></span>
-                                                        <span class="" star="3"></span>
-                                                        <span class="" star="4"></span>
-                                                        <span class="" star="5"></span>
-                                                    </case>
-                                                    </switch>
-                                                </div>
-                                            </li>
-                                            <li class="reviews_info">
-                                                {$rs['review_content']}
-                                            </li>
-                                            <li class="reviews_date">{$rs['review_create_time']}</li>
-                                        </ul>
-                                    </td>
-                                    </tr>
-                                </foreach>
-                                </tbody>
-                            </table>
+                            <foreach name="reviews" item="rs">
+                            <div class="review-item">
+                                <p>
+                                    <span class="star small">
+                                        <switch name="rs['review_rate']">
+                                                <case value="5">
+                                                    <span class="active" star="1"></span>
+                                                    <span class="active" star="2"></span>
+                                                    <span class="active" star="3"></span>
+                                                    <span class="active" star="4"></span>
+                                                    <span class="active" star="5"></span>
+                                                </case>
+                                                <case value="4">
+                                                    <span class="active" star="1"></span>
+                                                    <span class="active" star="2"></span>
+                                                    <span class="active" star="3"></span>
+                                                    <span class="active" star="4"></span>
+                                                    <span class="" star="5"></span>
+                                                </case>
+                                                <case value="3">
+                                                    <span class="active" star="1"></span>
+                                                    <span class="active" star="2"></span>
+                                                    <span class="active" star="3"></span>
+                                                    <span class="" star="4"></span>
+                                                    <span class="" star="5"></span>
+                                                </case>
+                                                <case value="2">
+                                                    <span class="active" star="1"></span>
+                                                    <span class="active" star="2"></span>
+                                                    <span class="" star="3"></span>
+                                                    <span class="" star="4"></span>
+                                                    <span class="" star="5"></span>
+                                                </case>
+                                                <case value="1">
+                                                    <span class="active" star="1"></span>
+                                                    <span class="" star="2"></span>
+                                                    <span class="" star="3"></span>
+                                                    <span class="" star="4"></span>
+                                                    <span class="" star="5"></span>
+                                                </case>
+                                                <case value="0">
+                                                    <span class="" star="1"></span>
+                                                    <span class="" star="2"></span>
+                                                    <span class="" star="3"></span>
+                                                    <span class="" star="4"></span>
+                                                    <span class="" star="5"></span>
+                                                </case>
+                                            </switch>
+                                    </span>
+                                    <span class="review-title">{$rs['review_title']}</span>
+                                </p>
+                                <p>
+                                    <span class="gray-light">By </span><span class="review-by">{$rs['review_create_username']}</span>  <span class="gray-light">on {$rs['review_create_time']|substr=0,16}</span>
+                                </p>
+                                <p>
+                                    {$rs['review_content']}
+                                </p>
+                            </div>
+                            </foreach>
+                              
                         </div>
                         <if condition="$device neq 'pc'">
                             <p class="tc">
                                 <span class="loading">
                                     <img src="/image/loading.gif">
                                 </span>
-                                <a class="btn_more_product_review" data-target=".item_box_list" page="1" href="javascript:void(0);">{:L('LOAD_MORE')}</a>
+                                <a class="btn_more_product_review" data-target="#reviews_box" page="1" href="javascript:void(0);">{:L('LOAD_MORE')}</a>
                                 <input type="hidden" class="item_id" value="{$item_id}">
                                 <input type="hidden" class="tpl_file" value="product_review_box_item">
                             </p>
                             <else />
-                            <div class="pagelist" id="comment_pages">
-                                <input type="hidden" class="item_id" value="{$item_id}">
-                                <input type="hidden" class="review_sum_pages" value="{$review_sum_pages}">
-                                <input type="hidden" class="tpl_file" value="product_review_box_item">
-                                <a class="btn_page_review" page="first" href="javascript:void(0);">&lt;&lt;</a>
-                                <a class="btn_page_review" page="prev" href="javascript:void(0);">&lt;</a>
-                                <a class="btn_page_review active" id="page_1" page="1" href="javascript:void(0);">1</a>
-                                <a class="btn_page_review" id="page_2" page="2" href="javascript:void(0);">2</a>
-                                <a class="btn_page_review" id="page_3" page="3" href="javascript:void(0);">3</a>
-                                <a class="btn_page_review" page="next" href="javascript:void(0);">&gt;</a>
-                                <a class="btn_page_review" page="last" href="javascript:void(0);">&gt;&gt;</a>
-                            </div>
+                            <notempty name="reviews">
+                                <div class="pagelist" id="comment_pages">
+                                    <input type="hidden" class="item_id" value="{$item_id}">
+                                    <input type="hidden" class="review_sum_pages" value="{$review_sum_pages}">
+                                    <input type="hidden" class="tpl_file" value="product_review_box_item">
+                                    <switch name="review_sum_pages">
+                                        <case value="1">
+
+                                        </case>
+                                        <case value="2">
+                                            <a class="btn_page_review" page="first" href="#ptop">&lt;&lt;</a>
+                                            <a class="btn_page_review" page="prev" href="#ptop">&lt;</a>
+                                            <a class="btn_page_review active" id="page_1" page="1" href="#ptop">1</a>
+                                            <a class="btn_page_review" id="page_2" page="2" href="#ptop">2</a>
+                                            <a class="btn_page_review" page="next" href="#ptop">&gt;</a>
+                                            <a class="btn_page_review" page="last" href="#ptop">&gt;&gt;</a>
+                                        </case>
+                                        <default />
+                                            <a class="btn_page_review" page="first" href="#ptop">&lt;&lt;</a>
+                                            <a class="btn_page_review" page="prev" href="#ptop">&lt;</a>
+                                            <a class="btn_page_review active" id="page_1" page="1" href="#ptop">1</a>
+                                            <a class="btn_page_review" id="page_2" page="2" href="#ptop">2</a>
+                                            <a class="btn_page_review" id="page_3" page="3" href="#ptop">3</a>
+                                            <a class="btn_page_review" page="next" href="#ptop">&gt;</a>
+                                            <a class="btn_page_review" page="last" href="#ptop">&gt;&gt;</a>
+                                    </switch>
+
+                                </div>
+                            </notempty>
                         </if>
                     </div>
                 </div>
@@ -280,7 +303,7 @@
             <div class="block">
                 <div id="review_form" class="review_form">
                     <p class="titles">
-                        Feel free to ask questions about this product here. <br>Your question will be posted on this page.<br> Anker Customer Support and the Anker user community will do their best to quickly answer your question.
+                        Share your thoughts with other customers. Write a customer review here! <br>if you have any questions about our product and service, please email directly to <a href="mailto:service@womdee.com">service@womdee.com</a>
                     </p>
                     <form id="comment_form" class="form">
                         <p>Title:<span class="form_span red">*</span></p>
@@ -341,9 +364,12 @@
                     &nbsp;&nbsp;<span class="form_span red ErrorText" id="captcha_comment_error">{:L('NOTNULL_CAPTCHA')}</span>
                         -->
                         <p></p>
-                        <p id="form_loading" class="form_loading"><img src="/image/loading.gif"></p>
+                        <p></p>
+                        <p class="wait-review" style="padding-left: 32px; display: none;"><img src="/image/loading.gif"></p>
                         <p><label class="ErrorText err_info"></label></p>
+                        <!--
                         <p><label class="success_info"></label></p>
+                        -->
                         <p>
                             <span class="review_form_btn">
                                 <input type="button" id="ia_button" value="Submit" class="btn sb_btn btn_review">
@@ -356,4 +382,10 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var asin_data = '{$asin_data}';
+        var asin_obj = JSON.parse(asin_data);
+        var color_val,
+            size_val;
+    </script>
     <include file="Public:foot" />

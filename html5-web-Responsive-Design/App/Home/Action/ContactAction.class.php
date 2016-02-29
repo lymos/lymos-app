@@ -31,6 +31,34 @@ class ContactAction extends BaseAction {
         $this->display();
     }
 
+    public function iTryBlogger(){
+        $this->display();
+    }
+
+    public function howToOrder(){
+        $this->display();
+    }
+
+    public function wholesale(){
+        $this->display();
+    }
+
+    public function privacySecurityPolicy(){
+        $this->display();
+    }
+
+    public function termsConditions(){
+        $this->display();
+    }
+
+    public function sizeAndFitGuides(){
+        $this->display();
+    }
+
+    public function returnPolicy(){
+        $this->display();
+    }
+
     public function business() {
         $data = $this->help_center_model->where(array('center_type' => 'buiness', 'center_language' => $this->lang))->field('center_title,center_content')->find();
         //热销产品

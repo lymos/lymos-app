@@ -151,5 +151,7 @@ return array(
     'NO_RESULT_FOR_YOU' => 'No Result For You.',
 	'LOAD_MORE' => '+More',
     'NO_MORE_PRODUCT' => 'No More Products',
-    'NO_MORE_REVIEWS' => 'No More Products Reviews'
+    'NO_MORE_REVIEWS' => 'No More Products Reviews',
+    'NO_THIS_PRODUCT' => 'No This Product',
+    'CHOOSE_ATTR' => 'Please Choose Color and Size'
 );

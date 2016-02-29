@@ -70,7 +70,7 @@ return array(
     'LABEL_TERMS_SERVICE' => 'Terms of Service',
     'LABEL_FAQ' => 'FAQ',
     'LABEL_BEST_SELLERS' => 'Best Sellers',
-    'LABEL_SELECT_LANG' => 'Please select a language',
+    'LABEL_SELECT_LANG' => 'Please select a country',
     'TEXT_LANG_EN' => 'English',
     'TEXT_LANG_CN' => 'Chinese',
     'TEXT_LANG_DE' => 'German',
@@ -148,5 +148,12 @@ return array(
     'NOTNULL_CONTENT' => 'Please write content',
     'BTN_SEARCH' => 'Search',
     'BUY_AMAZON' => 'Buy at Amazon',
-    'NO_RESULT_FOR_YOU' => 'No Result For You.'
+    'LOAD_MORE' => '+More',
+    'NO_RESULT_FOR_YOU' => 'No Result For You.',
+    'NO_MORE_PRODUCT' => 'No More Products',
+    'NO_MORE_REVIEWS' => 'No More Products Reviews',
+     'NO_THIS_PRODUCT' => 'Currently Unavailable',
+    'CHOOSE_ATTR' => 'Please Choose Color and Size',
+    'REVIEW_SUCCESS' => 'Congratulations! Your feedback has been submitted. \r\n\r\nOur job will be getting better and better with your support!',
+    'REVIEW_FAILED' => 'Review Failed'
 );

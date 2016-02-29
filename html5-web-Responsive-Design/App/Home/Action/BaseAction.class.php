@@ -23,10 +23,13 @@ class BaseAction extends Action {
         //分类数据
         $this->getCategoryData();
         $category_data = $this->categoryMenu();
+        $foot_bestseller = $this->hotOrLikeProductData('hot', 5);
 
         $this->assign('username', session('username'));
         $this->assign('site_datas', $site_data);
         $this->assign('lang_data', $lang_data);
+        $this->assign('foot_bestseller', $foot_bestseller);
+        $this->assign('country_code', $this->country_code);
         $this->assign('category_menu', $category_data[0]['child_category']);
     }
 
@@ -158,12 +161,13 @@ class BaseAction extends Action {
                 $where.=" and category_id in (" . implode(',', $data['cate_id_array']) . ")";
             }
         }
-        $list_data = $list_model->field('item_id,sku_common_images')->where($where)->order('sell_num desc')->limit($limit_nums)->select();
+        $list_data = $list_model->field('item_id,sku_common_images,item_code')->where($where)->order('sell_num desc')->limit($limit_nums)->select();
         if (!empty($list_data)) {
             $list_data_temp = array();
-            $list_item_id = array();
+            $list_item_id = $list_item_code = array();
             foreach ($list_data as $list_val) {
                 $list_item_id[] = $list_val['item_id'];
+                $list_item_code[$list_val['item_id']] = $list_val['item_code'];
                 $list_data_temp[$list_val['item_id']] = $list_val['sku_common_images'];
             }
             unset($list_data);
@@ -173,6 +177,7 @@ class BaseAction extends Action {
                 $image_temp_array = pathinfo($image_url[0]);
                 $list_base_val['image_url'] = $image_url[0];
                 $list_base_val['image_sku'] = $image_temp_array['filename'];
+                $list_base_val['item_code'] = $list_item_code[$list_base_val['item_id']];
                 $list_base[$key] = $list_base_val;
             }
         }

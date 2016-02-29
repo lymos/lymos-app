@@ -2,6 +2,14 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <script src="/js/jquery19.js"></script>
 <script src="/js/home.js"></script>
+<div class="search-box">
+    <form action="/Product/productSearch" method="get">
+
+        <input type="text" name="search_key">
+        <button type="submit" style="cursor: pointer; background-color: #a15d03; color: #fff; padding: 8px 12px;">{:L('BTN_SEARCH')}</button>
+
+    </form>
+</div>
 <div id="nav">
     <div id="navWrap">
         <a href="/" id="navLogo"><img src="/image/logo.png"></a>
@@ -18,16 +26,6 @@
             <span class="p-png-search p-btn-show-search"><img style="vertical-align:bottom; cursor: pointer;" src="/image/search.png" title="search"></span>
             <span class="png-search btn-show-search"></span>
             <span class="ml30" id="nav-control" onclick="ShowMenu();" style="vertical-align: top;"><i class="icon-align-justify" style="font-size:16px;"><em>≡</em></i></span>
-            
-            <div class="search-box" style="margin-top: 6px; box-sizing: border-box; display: none;">
-                <form action="/Product/productSearch" method="get">
-
-                    <input type="text" name="search_key">
-                    <button type="submit" style="cursor: pointer; background-color: #a15d03; color: #fff">{:L('BTN_SEARCH')}</button>
-
-                </form>
-            </div>
-           
         </div>
         <div class="m-search-box">
             <form action="/Product/productSearch" method="get">
@@ -45,18 +43,20 @@
                             <volist name="menu['child_category']" id="child_menu">
                                 <li>
                                     <a class="nolink" href="{$child_menu['url']}">{$child_menu['category_title']}</a>
+                                    <!--
                                     <div class="nav-sub2-cover">
                                         <div class="nav-power">
                                             <a href="{$child_menu['url']}">
-                                                <!--                                                <img src="/img/navPowerIQ.png">-->
+                                                <img src="/img/navPowerIQ.png">
                                             </a>
                                         </div>
                                     </div>
+                                    
                                     <ul class="nav-sub2">
                                         <volist name="child_menu['child_category']" id="child_child_menu">
                                             <li>
                                                 <a href="{$child_child_menu['url']}">
-                                                    <!--                                                    <img src="/img/nav/external_batteries.jpg">-->
+                                                    <img src="/img/nav/external_batteries.jpg">
                                                     <p>
                                                         {$child_child_menu['category_title']}
                                                     </p>
@@ -64,6 +64,7 @@
                                             </li>
                                         </volist>
                                     </ul>
+                                    -->
                                 </li>
                             </volist>
                         </ul>

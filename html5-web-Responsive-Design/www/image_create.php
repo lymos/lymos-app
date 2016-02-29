@@ -41,6 +41,9 @@ function img_create_small($item_id, $big_img, $size) {
     $image_size_arr = $image_size_data[$size];
     $height = empty($image_size_arr['height']) ? $src_H * ($image_size_arr['width'] / $src_W) : $image_size_arr['height'];
     $width = empty($image_size_arr['width']) ? $src_W * ($height / $src_H) : $image_size_arr['width'];
+	
+	$height = $image_size_arr['height'];
+    $width = $image_size_arr['width'];
     
 	$quality = $image_size_arr['quality'];
 	
@@ -60,8 +63,8 @@ function img_create_small($item_id, $big_img, $size) {
 		$height_new = $src_H * ($width / $src_W);
 	}
 	
-    $width_new = $src_W * ($height / $src_H);
-    imagecopyresampled($tn, $im, ($width - $width_new) / 2, 0, 0, 0, $width_new, $height_new, $src_W, $src_H); //复制图像并改变大小
+    //$width_new = $src_W * ($height / $src_H);
+    imagecopyresampled($tn, $im, ($width - $width_new) / 2, ($height - $height_new) / 2, 0, 0, $width_new, $height_new, $src_W, $src_H); //复制图像并改变大小
 
     $small_img = NULL;
     imagejpeg($tn, $small_img, $quality); //输出图像
@@ -70,16 +73,16 @@ function img_create_small($item_id, $big_img, $size) {
 //生成图片的尺寸
 function image_size() {
     $image_size_arr = array(
-        'product_list' => array('width' => '', 'height' => '350', 'quality' => '100'),
-        'hot_list' => array('width' => '90', 'height' => '90', 'quality' => '80'),
+        'product_list' => 	array('width' => '279', 'height' => '350', 'quality' => '100'),
+        'hot_list' => 		array('width' => '90', 'height' => '90', 'quality' => '80'),
         'product_detail' => array('width' => '343', 'height' => '430', 'quality' => '100'),
-        'detail_min' => array('width' => '90', 'height' => '90', 'quality' => '80'),
-        'like_product' => array('width' => '', 'height' => '350', 'quality' => '100'),
-        'mini' => array('width' => '90', 'height' => '90', 'quality' => '60'),
-        'big' => array('width' => '600', 'height' => '600', 'quality' => '80'),
-        'common' => array('width' => '400', 'height' => '400', 'quality' => '80'),
-        'small' => array('width' => '200', 'height' => '200', 'quality' => '60'),
-		'large' => array('width' => '617', 'height' => '774', 'quality' => '60'), //large size = product_detail size * 1.8
+        'detail_min' => 	array('width' => '90', 'height' => '90', 'quality' => '80'),
+        'like_product' => 	array('width' => '279', 'height' => '350', 'quality' => '100'),
+        'mini' => 			array('width' => '90', 'height' => '90', 'quality' => '60'),
+        'big' => 			array('width' => '600', 'height' => '600', 'quality' => '80'),
+        'common' => 		array('width' => '400', 'height' => '400', 'quality' => '80'),
+        'small' => 			array('width' => '200', 'height' => '200', 'quality' => '60'),
+		'large' => 			array('width' => '617', 'height' => '774', 'quality' => '60'), //large size = product_detail size * 1.8
     );
     return $image_size_arr;
 }

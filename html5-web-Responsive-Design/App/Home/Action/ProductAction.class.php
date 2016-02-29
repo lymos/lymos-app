@@ -14,6 +14,7 @@ class ProductAction extends BaseAction {
         $device_type = checkDeviceType();
         //产品列表
         $item_data = $this->getItemData($category_id_array);
+
         //热销产品
         $hot_data = $this->hotOrLikeProductData('hot', 8);
 
@@ -21,6 +22,7 @@ class ProductAction extends BaseAction {
         $this->assign('device', $device_type);
         $this->assign('product', $item_data['item_list']);
         $this->assign('product_detail', $item_data['list_detail']);
+        $this->assign('attr_detail', $item_data['attr_detail']);
         $this->assign('page_show', $item_data['page']);
         $this->assign('hot_product', $hot_data);
         $this->display('product_list');
@@ -29,9 +31,11 @@ class ProductAction extends BaseAction {
     private function getItemData($category_id_array) {
         $list_model = M('listings');
         $list_detail_model = M('listings_baseinfo');
+        $model_detail = M('listings_detail');
+
         $where = "item_status = 1 and category_id in (" . implode(',', $category_id_array) . ")";
         $count = $list_model->where($where)->count();
-        $page = new \Think\Page($count, 3);
+        $page = new \Think\Page($count, 12);
         $list = $list_model->where($where)->order('sell_num desc')->limit($page->firstRow . ',' . $page->listRows)->select();
         $show_page = $page->pageShow();
 
@@ -46,8 +50,28 @@ class ProductAction extends BaseAction {
             }
             $list_detail = $list_detail_model->where("item_id in (" . implode(',', $list_id) . ") and item_language = '$this->lang'")
                     ->getField("item_id,item_title");
+
+            // attr
+            $attr_temp = $model_detail->where('item_id in (' . implode(',', $list_id) . ')')->field('item_id,sku_attribute_arrays')
+                    ->select();
+            foreach ($attr_temp as $rs) {
+                $attr_ar = unserialize($rs['sku_attribute_arrays']);
+                $attr_ar_temp = $attr_ar[$this->lang];
+                $item_id = $rs['item_id'];
+
+                foreach ($attr_ar_temp as $attr_key => $attr_val) {
+                    if (!in_array($attr_val, $product_attr_detail[$item_id][$attr_key])) {
+                        $product_attr_detail[$item_id][$attr_key][] = $attr_val;
+                    }
+                }
+            }
         }
-        $result = array('item_list' => $list, 'page' => $show_page, 'list_detail' => $list_detail);
+        $result = array(
+            'item_list' => $list,
+            'page' => $show_page,
+            'list_detail' => $list_detail,
+            'attr_detail' => $product_attr_detail
+        );
         return $result;
     }
 
@@ -60,6 +84,7 @@ class ProductAction extends BaseAction {
         $device_type = checkDeviceType();
         //获取产品详情信息
         $data = $this->getProductDetailById($product_id);
+
         $product_list = $data['listing'];
         $product_baseinfo = $data['base_info']; //产品标题描述
         //$list_detail = $data['list_detail']; //产品属性图片
@@ -76,9 +101,23 @@ class ProductAction extends BaseAction {
         $category_id_array = $this->getChildCategoryID($category_id);
         $like_product = $this->hotOrLikeProductData('like', 4, array('cate_id_array' => $category_id_array, 'product_id' => $product_id));
         //产品对应AMZ站点
-        $site_data = $this->getAmzSiteList($product_list['item_sites']);
+        //$site_data = $this->getAmzSiteList($product_list['item_sites']); //此处已无须再判断是否在该站点刊登
+        $site_data = $this->getAmzSiteList(); //直接通过当前国家或客户选定的国家，取对应的跳转地址即可。
+        //print_r($site_data);die();
+        $userid = session('userid');
 
-        $this->assign('userid', session('userid'));
+        // 判断是否是自己的评论进来的
+        $is_review_refer = 1;
+        if ($userid == $reviews['data'][0]['review_create_userid']) {
+            $now_time = time();
+            $last_review_time = strtotime($reviews['data'][0]['review_create_time']);
+            if ($now_time - $last_review_time < 10) {
+                $is_review_refer = 2;
+            }
+        }
+
+        $this->assign('is_review_refer', $is_review_refer);
+        $this->assign('userid', $userid);
         $this->assign('username', session('username'));
         $this->assign('category_array', $category_array);
         $this->assign('product_list', $product_list);
@@ -87,24 +126,29 @@ class ProductAction extends BaseAction {
         $this->assign('product_attr', $product_attr);
         $this->assign('product_img', $product_img);
         $this->assign('device', $device_type);
+        $this->assign('reviews_count', $reviews['count']);
+        $this->assign('reviews_agv', $reviews['agv']);
         $this->assign('reviews', $reviews['data']);
         $this->assign('review_sum_pages', $reviews['review_sum_pages']);
         $this->assign('faq_data', $faq_data);
         $this->assign('like_product', $like_product);
         $this->assign('item_id', $product_id);
+        $this->assign('asin_data', json_encode($data['asin_data']));
         $this->display('product_detail');
     }
 
     public function productSearch() {
         $model_listing = M('listings');
         $model_listbase = M('listings_baseinfo');
+        $model_detail = M('listings_detail');
+
         $params = I('get.');
         $key = $params['search_key'];
 
         // item_title
         $where = 'item_title like "%' . $key . '%" and item_language = "' . $this->lang . '"';
         $temp = $model_listbase->where($where)->field('item_id,item_title')->select();
-        $item_ids = $detail = $data = array();
+        $item_ids = $detail = $data = $item_id_ar = array();
         foreach ($temp as $rs) {
             $item_ids[] = $rs['item_id'];
             $detail[$rs['item_id']] = $rs['item_title'];
@@ -122,18 +166,25 @@ class ProductAction extends BaseAction {
                 //$temp[$key]['sku_common_images'] = $img_data[$rs['item_id']];
                 $temp[$key]['image_sku'] = $img_array['filename'];
             }
+        } else {
+            $item_ids = array();
         }
 
-        // item_code
-        $code_data = $model_listing->where('item_code like "%' . $key . '%"')
-                ->getField('item_id,sku_common_images');
+        // asin码
+        $aisn_item_ids = $model_detail->where('asin like "%' . $key . '%"')
+                ->getField('item_id', true);
+        $aisn_item_ids = array_unique(array_filter($aisn_item_ids));
 
-        $item_ids_ar1 = array_keys($code_data);
-        if ($item_ids_ar1) {
-            $title_data = $model_listbase->where('item_id in (' . implode(',', $item_ids_ar1) . ') and item_language = "' . $this->lang . '"')
+        if ($aisn_item_ids) {
+            $where_str = 'item_id in (' . implode(',', $aisn_item_ids) . ')';
+            $title_data = $model_listbase->where($where_str . ' and item_language = "' . $this->lang . '"')
                     ->getField('item_id, item_title');
-            foreach ($code_data as $item_id => $img) {
-                $sku_common_images = unserialize($img);
+
+            $listing_data = $model_listing->where($where_str)
+                    ->getField('item_id,sku_common_images');
+
+            foreach ($aisn_item_ids as $item_id) {
+                $sku_common_images = unserialize($listing_data[$item_id]);
                 $img_array = pathinfo($sku_common_images[0]);
                 $temp[] = array(
                     'item_id' => $item_id,
@@ -141,13 +192,36 @@ class ProductAction extends BaseAction {
                 );
                 $detail[$item_id] = $title_data[$item_id];
             }
+        } else {
+            $aisn_item_ids = array();
         }
+        $item_id_ar = array_merge($item_ids, $aisn_item_ids);
+
+        if ($item_id_ar) {
+            // attr
+            $attr_temp = $model_detail->where('item_id in (' . implode(',', $item_id_ar) . ')')->field('item_id,sku_attribute_arrays')
+                    ->select();
+            foreach ($attr_temp as $rs) {
+                $attr_ar = unserialize($rs['sku_attribute_arrays']);
+                $attr_ar_temp = $attr_ar[$this->lang];
+                $item_id = $rs['item_id'];
+
+                foreach ($attr_ar_temp as $attr_key => $attr_val) {
+                    if (!in_array($attr_val, $product_attr_detail[$item_id][$attr_key])) {
+                        $product_attr_detail[$item_id][$attr_key][] = $attr_val;
+                    }
+                }
+            }
+        }
+
         $device_type = checkDeviceType();
         $this->assign('device', $device_type);
         if (!$temp) {
             $this->assign('no_search_product', true);
         } else {
+
             $this->assign('product', $temp);
+            $this->assign('attr_detail', $product_attr_detail);
             $this->assign('product_detail', $detail);
         }
 
@@ -163,17 +237,21 @@ class ProductAction extends BaseAction {
         $listing_detail_model = M('listings_detail');
 
         $list_data = $listing_model->where("item_id = $product_id")->find();
-        $base_info = $listing_base_model->where("item_id = $product_id and item_language = '$this->lang'")->field('item_id,item_title,item_description')->find();
-        $list_detail = $listing_detail_model->where('item_id = ' . $product_id)->field('item_id,sku,sku_attribute_arrays,sku_images')->select();
+        $base_info = $listing_base_model->where("item_id = $product_id and item_language = '$this->lang'")->field('item_id,item_title,item_description,item_short_description')->find();
+        $list_detail = $listing_detail_model->where('item_id = ' . $product_id)->field('item_id,sku,sku_attribute_arrays,sku_images,asin')->select();
 
         $color_list = get_lang_color();
         $color_val_array = array();
-        $product_attr_detail = $product_img_detail = array();
+        $product_attr_detail = $product_img_detail = $asin_temp = array();
         foreach ($list_detail as $rs) {
+
             $attr_ar = unserialize($rs['sku_attribute_arrays']);
             $attr_ar_temp = $attr_ar[$this->lang];
             $sku_images_array = '';
+            $asin_temp[$rs['asin']] = $attr_ar_temp;    // asin码
+
             foreach ($attr_ar_temp as $attr_key => $attr_val) {
+
                 if (in_array($attr_key, $color_list) && !in_array($attr_val, $color_val_array)) {
                     $color_val_array[] = $attr_val;
                     $sku_images_array = unserialize($rs['sku_images']);
@@ -190,6 +268,18 @@ class ProductAction extends BaseAction {
                 }
             }
         }
+
+
+        $asin_data = array();
+        foreach ($asin_temp as $asin => $ret) {
+            foreach ($ret as $val) {
+                foreach ($ret as $v) {
+                    $asin_data[$val][$v] = $asin;
+                }
+            }
+        }
+
+
         //附加尺码图
         $list_img = unserialize($list_data['sku_common_images']);
         foreach ($list_img as $list_img_val) {
@@ -197,7 +287,14 @@ class ProductAction extends BaseAction {
             $product_img_detail[] = $img_array['filename'];
         }
         $product_img_detail = array_unique($product_img_detail);
-        return array('listing' => $list_data, 'base_info' => $base_info, 'list_detail' => $list_detail, 'attr_detail' => $product_attr_detail, 'image_array' => $product_img_detail);
+        return array(
+            'listing' => $list_data,
+            'base_info' => $base_info,
+            'list_detail' => $list_detail,
+            'attr_detail' => $product_attr_detail,
+            'image_array' => $product_img_detail,
+            'asin_data' => $asin_data
+        );
     }
 
     /*
@@ -234,31 +331,34 @@ class ProductAction extends BaseAction {
         $model_review = M('reviews');
         $where = "review_show = 1 and review_item_id = $item_id and review_language = '$this->lang'";
         $count = $model_review->where($where)->count();
-        $page_size = C('PAGE_SIZE');
-        $page_size = $page_size ? $page_size : 2;
+        $sum = $model_review->where($where)->sum('review_rate');
+        //$page_size = C('PAGE_SIZE');
+        //$page_size = $page_size ? $page_size : 10;
+        $page_size = 10;
         $Page = new \Think\Page($count, $page_size);
-        $page_size = C('PAGE_SIZE');
-        if (!$page_size) {
-            $page_size = 2;
-        }
+        //$page_size = C('PAGE_SIZE');
+        //if (!$page_size) {
+        //    $page_size = 2;
+        //}
         $review_sum_pages = ceil($count / $page_size); // 总页数
 
         $data = $model_review->where($where)->order('review_create_time desc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
         $show_page = $Page->pageShow();
 
-        return array('data' => $data, 'page' => $show_page, 'review_sum_pages' => $review_sum_pages);
+        return array('data' => $data, 'page' => $show_page, 'review_sum_pages' => $review_sum_pages, 'count' => $count, 'agv' => sprintf('%.1f', ($sum / $count)));
     }
 
     /*
      * 产品对应AMZ站点
      */
 
-    private function getAmzSiteList($site_ids) {
-        if (empty($site_ids)) {
-            return false;
-        }
+    //private function getAmzSiteList($site_ids) {
+    private function getAmzSiteList() {
+        /*        if (empty($site_ids)) {
+          return false;
+          } */
         $sites_list_model = M('sites_list');
-        $site_data = $sites_list_model->where("listing_site_id in ($site_ids) and listing_site_name = '$this->country_code'")->order('listing_site_sort asc')->find();
+        $site_data = $sites_list_model->where("listing_site_name = '$this->country_code'")->find();
         return $site_data;
     }
 
@@ -275,6 +375,8 @@ class ProductAction extends BaseAction {
     private function getItemDataByWhere($where = '', $order = '', $limit_from = 0, $limit_num = 0) {
         $model_list = M('listings');
         $model_list_base = M('listings_baseinfo');
+        $model_detail = M('listings_detail');
+
         if ($limit_num) {
             $limit = $limit_from . ',' . $limit_num;
         } else {
@@ -306,11 +408,30 @@ class ProductAction extends BaseAction {
                 $img_array = pathinfo($sku_common_images[0]);
                 $item_data[$key]['image_sku'] = $img_array['filename'];
             }
+
+
+            // attr
+            $attr_temp = $model_detail->where('item_id in (' . implode(',', $item_ids) . ')')->field('item_id,sku_attribute_arrays')
+                    ->select();
+            foreach ($attr_temp as $rs) {
+                $attr_ar = unserialize($rs['sku_attribute_arrays']);
+                $attr_ar_temp = $attr_ar[$this->lang];
+                $item_id = $rs['item_id'];
+
+                foreach ($attr_ar_temp as $attr_key => $attr_val) {
+                    if (!in_array($attr_val, $product_attr_detail[$item_id][$attr_key])) {
+                        $product_attr_detail[$item_id][$attr_key][] = $attr_val;
+                    }
+                }
+            }
         } else {
-            $item_data = array();
+            return false;
         }
 
-        return $item_data;
+        return array(
+            'item_data' => $item_data,
+            'attr_detail' => $product_attr_detail
+        );
     }
 
     /**
@@ -395,6 +516,9 @@ class ProductAction extends BaseAction {
 
         $where = 'item_status = 1 and category_id in (' . implode(',', $category_id_array) . ')';
         $data = $this->getItemDataByWhere($where, '', ($page - 1) * $page_size, $page_size);
+        $attr_detail = $data['attr_detail'];
+        $data = $data['item_data'];
+
         if (!$data) {
             return $this->ajaxReturn(
                             array(
@@ -403,6 +527,7 @@ class ProductAction extends BaseAction {
                     ));
         }
         $this->assign('product', $data);
+        $this->assign('attr_detail', $attr_detail);
         $html = $this->fetch('product_list_item');
         return $this->ajaxReturn(
                         array(
@@ -424,6 +549,7 @@ class ProductAction extends BaseAction {
     public function actionReview() {
         $params = I('post.');
         $userid = intval(session('userid'));
+        $username = session('username');
         if (!$userid) {
             return $this->ajaxReturn(array(
                         'status' => false,
@@ -443,6 +569,7 @@ class ProductAction extends BaseAction {
               'info' => L('ERROR_CAPTCHA')
               )
               ));
+
              */
         }
 
@@ -452,6 +579,7 @@ class ProductAction extends BaseAction {
             'review_item_id' => intval($params['item_id']),
             'review_create_time' => date('Y-m-d H:i:s'),
             'review_create_userid' => $userid,
+            'review_create_username' => $username,
             'review_rate' => intval($params['review_rate']),
             'review_language' => $this->lang
         );
@@ -467,7 +595,7 @@ class ProductAction extends BaseAction {
             $ret = array(
                 'status' => true,
                 'data' => array(
-                    'info' => L('COMMENT_SUCCESS'),
+                    'info' => L('REVIEW_SUCCESS'),
                     'html' => $html
                 )
             );
@@ -475,7 +603,7 @@ class ProductAction extends BaseAction {
             $ret = array(
                 'status' => false,
                 'data' => array(
-                    'info' => L('COMMENT_FAILED')
+                    'info' => L('REVIEW_FAILED')
                 )
             );
         }
@@ -487,7 +615,7 @@ class ProductAction extends BaseAction {
      */
     private function getProductReviewAjax($item_id, $limit_from = 0, $limit_num = 0) {
         if (!$limit_num) {
-            $limit_num = C('PAGE_SIZE') ? C('PAGE_SIZE') : 2;
+            $limit_num = C('PAGE_SIZE') ? C('PAGE_SIZE') : 10;
         }
 
         $model_review = M('reviews');
@@ -498,7 +626,8 @@ class ProductAction extends BaseAction {
         }
         $data = $model_review
                 ->where(array('review_item_id' => intval($item_id), 'review_language' => $this->lang))
-                ->field('review_id,review_title,review_content,review_item_id,review_create_time,review_create_userid,review_rate')
+                ->field('review_id,review_title,review_content,review_item_id,review_create_time,review_create_userid,review_rate,review_create_username')
+                ->order('review_create_time desc')
                 ->limit($limit)
                 ->select();
 
@@ -519,7 +648,18 @@ class ProductAction extends BaseAction {
         // 总页数
         $count = M('reviews')->where(array('review_item_id' => $item_id))->count();
         $page_num = ceil($count / $page_size);
-        if ($page > $page_num) {
+
+        // PC端
+        if(($page == 'prev' && $current_page == 1) || ($page == 'next' && $page_num == $current_page)){
+            $this->ajaxReturn(
+                    array(
+                        'status' => false,
+                        'data' => L('NO_MORE_REVIEWS')
+            ));
+        }
+
+        // mobile端
+        if (is_numeric($page) && $page > $page_num) {
             $this->ajaxReturn(
                     array(
                         'status' => false,

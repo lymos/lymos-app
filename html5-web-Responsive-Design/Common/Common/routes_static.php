@@ -21,6 +21,13 @@ return array(
     'contact-us' => 'Contact/contactUs',
     'business' => 'Contact/business',
     'actionBusiness' => 'Contact/actionBusiness',
+    'i-try-blogger' => 'Contact/iTryBlogger',
+    'how-to-order' => 'Contact/howToOrder',
+    'wholesale' => 'Contact/wholesale',
+    'privacy-security-policy' => 'Contact/privacySecurityPolicy',
+    'terms-conditions' => 'Contact/termsConditions',
+    'size-and-fit-guides' => 'Contact/sizeAndFitGuides',
+    'return-policy' => 'Contact/returnPolicy'
 );
 ?>
 

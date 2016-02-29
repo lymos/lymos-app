@@ -55,6 +55,16 @@
                                 <h3>
                                     <a href="{:product_url($product_detail[$rs['item_id']],$rs['item_id'])}" title="{$product_detail[$rs['item_id']]}">{$product_detail[$rs['item_id']]}</a>
                                 </h3>
+                                <p></p>
+                                <foreach name="attr_detail[$rs['item_id']]" item="attr" key="attr_name">
+                                    <p style="padding-top: 4px;">
+                                        <label>{$attr_name}: </label>
+                                        <foreach name="attr" item="val">
+                                            <span>{$val}&nbsp;&nbsp;</span>
+                                        </foreach>
+                                    </p>
+                                </foreach>
+                                
                             </div>
                         </li>
                     </foreach>

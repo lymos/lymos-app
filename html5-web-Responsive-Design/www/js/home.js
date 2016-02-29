@@ -17,7 +17,7 @@ function showimg(num) {
     index = num;
     $(".imgnum span").removeClass("onselect").eq(index-1).addClass("onselect");
     $("#banner_img li").hide().stop(true,true).eq(index-1).fadeIn("slow");
-    index = index + 1 > 5 ? 1 : index + 1;
+    index = index + 1 > 4 ? 1 : index + 1;
     time = setTimeout("showimg(" + index + ")", 5000);
 }
 function ShowMenu(){

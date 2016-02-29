@@ -1,6 +1,6 @@
 <div class="footer_top clearfix">
     <div class="block">
-        {:L('FOOT_TIP_INFO')}
+        Contact us: <a href="mailto:service@womdee.com">service@womdee.com</a> 
     </div>
 </div>
 <div class="footer clearfix">
@@ -8,37 +8,88 @@
         <div class="block clearfix">
             <div class="footer_link clearfix">
                 <dl>
-                    <dt>{:L('LABEL_BEST_SELLERS')}</dt>
-                    <dd><a href="/">Astro Mini (Black)</a></dd>
-                    <dd><a href="/">40W Wall Charger</a></dd>
-                    <dd><a href="/">Lightning Cable</a></dd>
-                    <dd><a href="/">24W Car Charger</a></dd>
+                    <dt class="btn-toggle-foot">{:L('LABEL_BEST_SELLERS')}</dt>
+                    <foreach name="foot_bestseller" item="rs">
+                        <dd><a href="{:product_url($rs['item_title'],$rs['item_id'])}" title="{$rs['item_title']}">
+                        {$rs['item_title']|substr=0,20}</a></dd>
+                    </foreach>
                 </dl>
                 <dl>
-                    <dt>{:L('LABEL_ABOUT_TITLE')}</dt>
-                    <dd><a href="/about-us.html">{:L('LABEL_ABOUT_TITLE')}</a></dd>
-                    <dd><a href="/">{:L('LABEL_PRESS_CENTER')}</a></dd>
-                    <dd><a href="/contact-us.html">{:L('LABEL_CONTACT_US')}</a></dd>
-                    <dd><a href="/business.html">{:L('LABEL_WHOLESALE')}</a></dd>
+                    <dt class="btn-toggle-foot">Company Info</dt>
+                    <dd><a href="/about-us.html">About us</a></dd>
+                    <dd><a href="/terms-conditions.html">Terms & Conditions</a></dd>
+                    <dd><a href="/privacy-security-policy.html">Privacy & Security Policy</a></dd>
                 </dl>
                 <dl>
-                    <dt>{:L('LABEL_SUPPORT')}</dt>
-                    <dd><a href="/">{:L('LABEL_DRIVERS')}</a></dd>
-                    <dd><a href="/">{:L('LABEL_SERVICE')}</a></dd>
-                    <dd><a href="/">{:L('LABEL_POLICY')}</a></dd>
-                    <dd><a href="/">{:L('LABEL_TERMS_SERVICE')}</a></dd>
-                    <dd><a href="/">{:L('LABEL_FAQ')}</a></dd>
+                    <dt class="btn-toggle-foot">Quick Links</dt>
+                    <dd class="active"><a href="/how-to-order.html">How to order</a></dd>
+                    <dd class="active"><a href="/size-and-fit-guides.html">Size and Fit Guides</a></dd>
+                    <dd class="active"><a href="/wholesale.html">Wholesale</a></dd>
+                    <dd class="active"><a href="/i-try-blogger.html">I-Try Blogger</a></dd>
+                </dl>
+                <dl>
+                    <dt class="btn-toggle-foot">Customer Service</dt>
+                    <dd><a href="/contact-us.html">Contact Us</a></dd>
+                    <dd><a href="/return-policy.html">Returns Policy</a></dd>
                 </dl>
             </div>
             <div class="footer_info">
                 <div class="show_language">
                     <p>{:L('LABEL_SELECT_LANG')}</p>
                     <div class="language btn_language">
-                        {$lang_data['listing_site_country']}
+                        <php>
+
+                            switch(strtoupper($country_code)){
+                                        case 'US':
+                                            $yy = 0;
+                                            break;
+                                        case 'CA':
+                                            $yy = -130;
+                                            break;
+                                        case 'JP':
+                                            $yy = -105;
+                                            break;
+                                        case 'DE':
+                                            $yy = -51.8;
+                                            break;
+                                        case 'IT':
+                                            $yy = -26.4;
+                                            break;
+                                        case 'GB':
+                                            $yy = -78;
+                                            break;
+                                    }
+                        </php>
+                        <span style="padding-left: 28px; padding-top: 6px; margin-top: 2px; padding-bottom: 4px; background-image: url('/image/country_icon.png'); background-repeat: no-repeat; background-position: 0 {$yy}px;">{$lang_data['listing_site_country']}</span>
                         <ul class="language_list">
-                            <volist name="site_datas" id="site_vall">
-                                <li><a href="javascript:void(0);" onclick="ChangeLanguage('{$site_vall.listing_site_language}','{$site_vall.listing_site_name}');">{$site_vall['listing_site_country']}</a></li>
-                            </volist>
+                            <foreach name="site_datas" item="site_vall">
+                                <php>
+                                    switch(strtoupper($key)){
+                                        case 'US':
+                                            $y = 3;
+                                            break;
+                                        case 'CA':
+                                            $y = -130;
+                                            break;
+                                        case 'JP':
+                                            $y = -105;
+                                            break;
+                                        case 'DE':
+                                            $y = -51.2;
+                                            break;
+                                        case 'IT':
+                                            $y = -24;
+                                            break;
+                                        case 'GB':
+                                            $y = -76.8;
+                                            break;
+                                    }
+                                </php>
+                                <li class="country-code" style="padding-left: 28px; background-image: url('/image/country_icon.png'); background-repeat: no-repeat; background-position: 0 {$y}px;">
+                                    <a  href="javascript:void(0);" onclick="ChangeLanguage('{$site_vall.listing_site_language}','{$site_vall.listing_site_name}');">{$site_vall['listing_site_country']}</a>
+                                </li>
+                                
+                            </foreach>
                         </ul>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
 }
 
 .image{
-    width: 230px;
+    width: 288px;
     float: left;
     overflow: hidden;
     padding: 0;
@@ -31,7 +31,7 @@ a.item:hover p.title{
     color: #fff;
 }
 div.p_text{
-    width: 230px;
+    width: 288px;
 
     font-size: 0.82em;
     float: left;
@@ -54,7 +54,6 @@ div.items{
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
-    padding-left: 10.899999%;
     margin-bottom: 12px;
 }
 a.item{
@@ -126,5 +125,14 @@ a.item:hover{
     }
     div.p_text.img-right{
         float: right;
+    }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1200px){
+    .image{
+        width: 240px;
+    }
+    div.p_text{
+        width: 240px;
     }
 }

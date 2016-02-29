@@ -38,7 +38,8 @@ class WomdeeAPIFunctionAction extends DatabaseConnectionAction {
                         $base_info_arr = array();
                         $base_info_arr['item_id'] = $itemID;
                         $base_info_arr['item_title'] = $base_info['item_title'];
-                        $base_info_arr['item_description'] = $base_info['item_description'];
+                        $base_info_arr['item_short_description'] = $base_info['item_short_description'];
+						$base_info_arr['item_description'] = $base_info['item_description'];
                         $base_info_arr['item_language'] = strtolower($base_info['item_language']);
                         $this->query("insert into womdee_listings_baseinfo (" . join(',', array_keys($base_info_arr)) . ") values ('" . join("','", array_values($base_info_arr)) . "')");
                     }
@@ -47,6 +48,7 @@ class WomdeeAPIFunctionAction extends DatabaseConnectionAction {
                         $listing_detail_arr = array();
                         $listing_detail_arr['item_id'] = $itemID;
                         $listing_detail_arr['sku'] = $listing_details['sku'];
+						$listing_detail_arr['asin'] = $listing_details['asin'];
                         $listing_detail_arr['sku_stock'] = $listing_details['sku_stock'];
                         $listing_detail_arr['sku_attribute_arrays'] = serialize($listing_details['sku_attribute_arrays']);
                         $listing_detail_arr['sku_images'] = serialize($listing_details['sku_images']);

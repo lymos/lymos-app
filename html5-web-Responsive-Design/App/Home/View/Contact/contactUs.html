@@ -20,105 +20,13 @@
                     <h5 class="article_title">{$data['center_title']}</h5>
                     <br>
                     <br>
-                    {$data['center_content']}
-
-                    <p>
-                    </p><dl class="wablock">
-                        <dt>Wholesale Inquiries</dt>
-                        <dd>Please visit our <a href="/business.html">wholesale</a> page.</dd>
-                    </dl>
-                    <dl class="wablock contact_form_topbar">
-                        <dt>Media Inquiries</dt>
-                        <dd>For media inquiries, please complete the following contact form:</dd>
-                    </dl>
-                    <form method="post" action="{:U('index.php/Contact/actionContactInquiries')}" id="media" class="form contact_form">
-                        <p>{:L('LABEL_NAME')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" id="m_name" name="name" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="m_name_submit_error">{:L('NOTNULL_NAME')}</span>
-                        <p>{:L('LABEL_COMPANY_NAME')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" id="m_company" name="company" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="m_company_submit_error">{:L('NOTNULL_COMPANY')}</span>
-                        <p>{:L('LABEL_WEBSITE_URL')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" id="m_website" name="website" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="m_website_submit_error">{:L('NOTNULL_WEBSITE')}</span>
-                        <p>{:L('TEXT_EMAIL')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" id="m_email" name="email" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="m_email_submit_error">{:L('NOTNULL_EMAIL')}</span>
-                        <p>{:L('LABEL_INTEREST_PRODUCT')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" id="m_interest" name="interest" title="Provide URL or SKU if possible" class="tiptxt txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="m_interest_submit_error">{:L('NOTNULL_INTEREST')}</span>
-                        <p>{:L('LABEL_COMMENT')}<span class="form_span red">*</span></p>
-                        <p>
-                            <textarea id="m_comment" name="comment" class="txtarea txt" lang="notnull" notnull="1"></textarea>
-                        </p>
-                        <span class="ErrorText" id="m_comment_submit_error">{:L('NOTNULL_COMMENT')}</span>
-                        <p></p>
-                        <p></p>
-                        <p><input type="button" value="{:L('BTN_SUBMIT')}" id="sb_media" class="btn sb_btn btn_contact"></p>
-                        <p></p>
-                        <p>{:L('LABEL_OR_CONTACT')}<a href="mailto:contactus@wondee.com">contactus@wondee.com</a> {:L('LABEL_OR_CONTACT_INFO')}
-                        </p>
-                    </form>
-                    <dl class="wablock contact_form_topbar">
-                        <dt>{:L('LABEL_POWER_USER')}</dt>
-                        <dd>{:L('LABEL_POWER_USER_INFO')}</dd>
-                    </dl>
-                    <form id="poweruser" method="post" action="{:U('index.php/Contact/actionContactProduct')}" class="form contact_form">
-                        <p>{:L('LABEL_NAME')}<span class="form_span red">*</span></p>
-                        <p><input type="text" name="name" id="p_name" class="txt" lang="notnull" notnull="1"></p>
-                        <span class="ErrorText" id="p_name_submit_error">{:L('NOTNULL_NAME')}</span>
-                        <p>{:L('LABEL_HEAR')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" name="hear" id="p_hear" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="p_hear_submit_error">{:L('NOTNULL_HEAR')}</span>
-                        <p>{:L('LABEL_REVIEW_URL')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" name="review" id="p_review" class="tiptxt txt" title="YouTube, forum, or blog URL where you hope to review our product" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="p_review_submit_error">{:L('NOTNULL_REVIEW_URL')}</span>
-                        <p>{:L('TEXT_EMAIL')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" name="email" id="p_email" class="txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="p_email_submit_error">{:L('NOTNULL_EMAIL')}</span>
-                        <p>{:L('LABEL_COMPANY')}<span class="form_span red">*</span></p>
-                        <p>
-                            <select id="p_country" class="txt" name="country" lang="notnull" notnull="1">
-                                <foreach name="country_data" item="country_name">
-                                    <option label="Afghanistan" value="AF">Afghanistan</option>
-                                </foreach>
-                            </select>
-                        </p>
-                        <span class="ErrorText" id="p_country_submit_error">{:L('NOTNULL_COUNTRY')}</span>
-                        <p>{:L('LABEL_INTEREST_PRODUCT')}<span class="form_span red">*</span></p>
-                        <p>
-                            <input type="text" name="interest" id="p_interest" title="Provide URL or SKU if possible" class="tiptxt txt" lang="notnull" notnull="1">
-                        </p>
-                        <span class="ErrorText" id="p_interest_submit_error">{:L('NOTNULL_INTEREST')}</span>
-                        <p>{:L('LABEL_COMMENT')}<span class="form_span red">*</span></p>
-                        <p>
-                            <textarea name="comment" id="p_comment" class="txtarea txt" lang="notnull" notnull="1"></textarea>
-                        </p>
-                        <span class="ErrorText" id="p_comment_submit_error">{:L('NOTNULL_COMMENT')}</span>
-                        <p></p>
-                        <p></p>
-                        <p><input type="button" value="{:L('BTN_SUBMIT')}" id="btn_poweruser" class="btn sb_btn btn_contact_product"></p>
-                        <p></p>
-                        <p>{:L('LABEL_OR_CONTACT')}<a href="mailto:contactus@wondee.com">contactus@wondee.com</a> {:L('LABEL_OR_CONTACT_ABOVE')}</p>
-                    </form>
+                    EMAIL US
+                    <br>
+                    <br>
+                    <a href="mailto:service@Womdee.com">service@Womdee.com</a>
+                    <br>
+                    Please allow up to 24 hours to receive a response to your email.
                 </div>
-
             </div>
 
         </div>

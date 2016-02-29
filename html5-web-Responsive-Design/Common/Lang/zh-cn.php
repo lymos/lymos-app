@@ -149,6 +149,8 @@ return array(
 	
 	'LOAD_MORE' => '加载更多..',
     'NO_MORE_PRODUCT' => '没有更多的产品',
-    'NO_MORE_REVIEWS' => '没有更多的评论'
+    'NO_MORE_REVIEWS' => '没有更多的评论',
+    'NO_THIS_PRODUCT' => '没有这个产品',
+    'CHOOSE_ATTR' => '请选择颜色和尺寸'
 	
 );
