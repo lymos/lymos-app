@@ -1,0 +1,263 @@
+/* contact.html css */
+h5,h4,h3,h2,h1,dt,dl,dd,p{
+	margin: 0;
+	padding: 0;
+}
+body {
+    color: #414141;
+    font-family: arial,tahoma,"Hiragino Sans GB","Microsoft Yahei","宋体",sans-serif;
+}
+.wrap {
+    margin: 0 auto;
+    position: relative;
+}
+div{
+	position: relative;
+}
+.block {
+    margin: 0 5%;
+}
+@media screen and (min-width: 1029px){
+	.about_sidebar {
+    background: #dfddd5 none repeat scroll 0 0;
+    min-height: 700px;
+    padding: 80px 0 0 2%;
+    width: 20%;
+    float: right;
+}
+
+@media screen and (min-width: 320px) and (max-height: 480px){
+	.about_sidebar {
+    	background: #dfddd5 none repeat scroll 0 0;
+    	padding: 0 0 0 2%;
+	}
+}
+
+.about_side_nav li {
+    cursor: pointer;
+    font-size: 120%;
+    line-height: 20px;
+    padding: 3px 0;
+}
+.about_side_nav li span {
+    color: #222;
+    padding: 5px 0;
+    text-indent: 12px;
+}
+.about_side_nav_dot {
+    background-position: -187px -86px;
+    height: 9px;
+    margin-top: 4px;
+    width: 9px;
+}
+.about_side_nav li span a {
+    color: #222;
+}
+.member_notification, .fb, .tw, .yb, .follow_logo, .nav_slider_ico, #prevBtn a, #nextBtn a, .follow_ico, .applicant_ico, .award_ico, .v_slider_down, .v_slider_up, .download a, .default_reviewer_pic, .support_check_btn, .faq_list_dot, .tab_column span.more, .globle_nav_box dt em, .search_bar .support_search_btn, .support_download_ico, .support_faq_ico, .support_rma_ico, .crumbDelete, .about_side_nav_dot, .coverage_time, .support_video_ico, .toggle_search_ico {
+    background-image: url("../image/sprite.png");
+}
+.about .mainbar {
+    margin-right: 30%;
+    float: left;
+    display: inline-block;
+}
+.mainbar {
+    margin-right: 22%;
+    padding: 40px 0;
+}
+.contact_us {
+    min-height: 660px;
+}
+.about_top {
+    padding-bottom: 50px;
+}
+.about_top, .about_bottom, .coverage, .poweriq {
+    font-size: 120%;
+}
+.article_title {
+    color: #222;
+    font-size: 250%;
+    padding: 20px 0 30px;
+    text-align: center;
+}
+.wablock {
+    font-size: 110%;
+    padding-bottom: 50px;
+    overflow: hidden;
+}
+
+.wablock dt {
+    font-size: 120%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.wablock dt {
+    border-bottom: 1px solid #ddd;
+    clear: both;
+    color: #222;
+    font-size: 140%;
+    margin-bottom: 20px;
+    padding: 0 0 10px;
+}
+.wablock strong {
+    color: #222;
+    font-size: 110%;
+    font-weight: normal;
+    padding: 10px 0 2px;
+}
+.spspan {
+    overflow: hidden;
+    padding-left: 80px;
+}
+.spspan span {
+    display: inline;
+    float: left;
+    width: 150px;
+}
+.spspan span.long {
+    width: 250px;
+}
+.contact_us a {
+    text-decoration: underline;
+}
+.contact_us .contact_form_topbar {
+    padding-bottom: 20px;
+}
+.contact_form {
+    margin-left: 5%;
+    padding: 15px 15px 50px;
+    width: 75%;
+}
+.contact_us .contact_form p {
+    padding: 5px 0;
+}
+.form_span {
+    margin-left: 5px;
+}
+.red, .customer_comment_answer a.red, .ErrorText {
+    color: #d8412e;
+}
+.form p .txt {
+    width: 50%;
+}
+.ErrorText {
+    color: #f00;
+}
+.txt {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    height: 28px;
+    padding: 3px 5px;
+    width: 93%;
+}
+
+.contact_form .sb_btn {
+    float: left;
+}
+.btn, .btn-default, .btn-primery {
+    -moz-user-select: none;
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+}
+.sb_btn {
+    background: #1572a8 none repeat scroll 0 0;
+    margin-right: 5%;
+}
+.btn {
+    border: medium none;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 120%;
+    padding: 5px 20px;
+    text-align: center;
+}
+.main_sub_title strong, .main_sub_title span, .cat_locate, .cat_pre_sell, .item_prop dd em, .cyc, .product_slider_nav_bg li.hover span, .product_slider_nav_bg li:hover span, .no_sign_notice em, .customer_comment_item:hover .user_edit, .customer_comment_item:hover .admin_edit, #ia_content_error, .wrapper_box .show_block, .tab_column_level .tab_column_multi_level_hover, .country_list .country_list_show .show_block, .punew, .apply_btn, .apply_btn span, .about_side_nav li span, .about_side_nav li.hover .about_side_nav_item, .about_side_nav_item a, .about_ishow_item_slide .hover, .guide_content_link, .wablock strong, #search_error, .title strong, .support_check_btn, .support_download_bar em, .support_item_right .product_spec, .support_small_screen_title {
+    display: block;
+}
+.box_shadow_inner, .stxt, .txt, .values_search, .txtarea, .support_list_box {
+    box-shadow: 1px 1px 1px #ddd inset;
+}
+.txtarea {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    height: 100px;
+    padding: 3px 5px;
+    resize: none;
+    width: 98%;
+}
+.captcha-bar {
+    display: block;
+}
+.blank, .header, .search, .globle_nav_box dl dd, .follow_header, .footer, .language ul, .language ul li a, .footer_bottom, .footer_top, .lottery_top, .captcha-bar {
+    width: 100%;
+}
+#captcha-wrap {
+    background: #ddd none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    height: 100px;
+    margin-top: 3px;
+    padding: 3px;
+    text-align: left;
+    width: 250px;
+}
+#captcha-wrap .captcha-box {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #fff;
+    border-radius: 7px;
+    text-align: center;
+}
+hr, fieldset, img {
+    border: 0 none;
+}
+#captcha-wrap .text-box {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    float: left;
+    height: 43px;
+    margin: 4px;
+    text-align: center;
+    width: 140px;
+}
+#captcha-wrap .text-box label {
+    color: #000000;
+    font-family: helvetica,sans-serif;
+    font-size: 12px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 150px;
+}
+#captcha-wrap .text-box input {
+    width: 120px;
+}
+#captcha-wrap .captcha-action {
+    float: right;
+    height: 44px;
+    margin-top: 3px;
+    width: 97px;
+}
+#captcha-wrap img#captcha-refresh, .captcha-refresh {
+    cursor: pointer;
+    margin: 10px 0 0 10px;
+}
+a {
+    color: #6f6f6f;
+    outline: medium none;
+    text-decoration: none;
+    transition: all 300ms ease 0s;
+}
+.review_form .titles a, .customer_comment_item a, .choose_country_btn, .faq_list dt.hover, .faq_list dt:hover, .about_side_nav li span:hover, .about_side_nav li.hover span, .about_side_nav li.hover span a, .contact_us a, .coverage_item a, .guide_other a, .wablock a, .support_top_txt a, .form_style a, .position a, .product_item_wrapper_info a, .cyc a.ec, .product_slider_nav li.product_instruction a, .login a, .globle_nav li a:hover, .globle_nav li:hover span, .globle_nav li.hover span, .globle_nav li .globle_nav_list .gloable_nav_box a:hover, #feedbackbox a, .coverage .titles a, .faq_list dd a, .poweruser_notice a, .no_sign_notice a, .business_wrap a {
+    color: #1572a8;
+}
+

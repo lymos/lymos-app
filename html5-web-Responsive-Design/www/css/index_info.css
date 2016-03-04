@@ -1,0 +1,138 @@
+
+.module-container {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1200px;
+    box-sizing: border-box;
+}
+.module-container {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1200px;
+}
+
+.image{
+    width: 288px;
+    float: left;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+.image img{
+    max-height: 100%;
+    vertical-align: middle;
+    border: 0 none;
+}
+a.item:hover{
+    #transform: scale(1.02,1.02);
+    color: #fff;
+}
+a.item:hover p.title{
+    color: #fff;
+}
+div.p_text{
+    width: 288px;
+
+    font-size: 0.82em;
+    float: left;
+    #padding: 10px 20px;
+    box-sizing: border-box;
+    #position: relative;
+    padding-left: 10px;
+
+}
+div.p_text span.more{
+    border: 1px solid #999;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+p.p_more{
+    margin-top: 6px;
+}
+div.items{
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+a.item{
+    float: left;
+    box-sizing: border-box;
+
+}
+a.item:hover{
+    background-color: #a15d03;
+}
+@media screen and (max-width: 360px){
+    a.item{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    div.p_text{
+        width: 100%;
+        overflow: hidden;
+        font-size: 0.78em;
+        float: left;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #999;
+        margin-bottom: 10px;
+    }
+    .image{
+        width: 100%;
+        float: left;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    div.items{
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 980px){
+    a.item{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    div.p_text{
+        width: 50%;
+        overflow: hidden;
+        font-size: 0.78em;
+        float: left;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    .image{
+        width: 50%;
+        float: left;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    div.items{
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    div.image.img-right{
+        float: right;
+    }
+    div.p_text.img-right{
+        float: right;
+    }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1200px){
+    .image{
+        width: 240px;
+    }
+    div.p_text{
+        width: 240px;
+    }
+}

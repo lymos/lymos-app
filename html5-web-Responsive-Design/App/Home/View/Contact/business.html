@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="Keywords" content="WOMDEE">
+        <meta name="Description" content="We created tackling first-world problems like low battery and slow data access to make life better">
+        <title>womdee</title>
+        <link rel="stylesheet" type="text/css" href="/css/contact.css" />
+        <link rel="stylesheet" type="text/css" href="/css/inner.css" />
+    </head>
+    <body>
+    <include file="Public:top" />
+    <div class="wrap">
+        <div class="block">
+            <div class="position">{:L('LABEL_YOUR_POSITION')} <a href="/">{:L('LABEL_HOME')}</a> <code>&gt;</code> <a href="/business">{:L('LABEL_WHOLESALE')}</a>
+            </div>
+            <div class="cut_line">
+                <span class="left_line"></span><span class="right_line"></span>
+            </div>
+            <h1 class="title">{$data['center_title']}</h1>
+            <div class="wrapper business_wrap">
+                <div class="content_text clearfix">
+                    {$data['center_content']}
+                    <div title="business" id="business_form">
+                        <div class="bs_form form_style">
+                            <form action="/actionBusiness" method="post" id="bform" name="bform" class="form">
+                                <p>
+                                    <label>{:L('LABEL_COMPANY_NAME')}<span class="form_span red">*</span></label>
+                                    <input type="text" name="company_name" id="company_name" class="txt" lang="notnull" notnull="1">
+                                    <label class="ErrorText">{:L('NOTNULL_COMPANY')}</label>
+                                </p>
+                                <span id="company_name_error" class="form_span red"></span>
+                                <p>
+                                    <label>{:L('LABEL_WEBSITE')}</label>
+                                    <input type="text" name="website" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('LABEL_COMPANY_ADDR')}</label>
+                                    <input type="text" name="company_address" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('LABEL_COMPANY_TYPE')}</label>
+                                    <input type="text" name="company_type" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('LABEL_BRANDS')}</label>
+                                    <input type="text" name="products_brands" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('LABEL_PURCHASE_PURPOSE')}</label>
+                                    <span>{:L('LABEL_COMPANY_USE')}</span>
+                                    <input type="checkbox" value="company use" name="purchase[]">
+                                    <span>{:L('LABEL_PURCHASE_OTHERS')}</span>
+                                    <input type="checkbox" value="purchase for others" name="purchase[]">
+                                </p>
+                                <span id="purchase_error" class="form_span red"></span>
+                                <p>
+                                    <label>{:L('LABEL_CONTACT_NAME')}</label>
+                                    <input type="text" name="contact_name" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('TEXT_EMAIL')}<span class="form_span red">*</span></label>
+                                    <input type="text" name="email" id="email" class="txt" lang="notnull" notnull="1">
+                                    <label class="ErrorText">{:L('NOTNULL_EMAIL')}</label>
+                                </p>
+                                <span id="email_error" class="form_span red"></span>
+                                <p>
+                                    <label>{:L('LABEL_CONTACT_PHONE')}</label>
+                                    <input type="text" name="phone_number" class="txt">
+                                </p>
+                                <p>
+                                    <label>{:L('LABEL_CONTACT_MOBILE')}</label>
+                                    <input type="text" name="mobile_phone" class="txt">
+                                </p>
+                                <p><label>{:L('LABEL_MESSAGE')}</label></p>
+                                <p>
+                                    <textarea name="message" rows="6" class="txtarea"></textarea>
+                                </p>
+
+                                <p>
+                                    <input type="button" value="{:L('BTN_SUBMIT')}" class="btn sb_btn btn_buiness">
+                                    <input type="reset" value="{:L('BTN_RESET')}" class="btn rs_btn">
+
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="content_text clearfix">
+                        <volist name="hot_data" id="rs">
+                            <div class="bs_other_item small_box">
+                                <p class="bs_other_item_pic"><img style="height: 330px;" src="{$rs['image_url']|default='/image/demo.jpg'}"></p>
+                                <dl class="bs_other_item_box">
+                                    <dd class="bs_other_item_info">
+                                        <a href="{:product_url($rs['item_title'],$rs['item_id'])}">{$rs['item_title']}</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public:foot" />

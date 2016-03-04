@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="Keywords" content="ANKER">
+        <meta name="Description" content="We created tackling first-world problems like low battery and slow data access to make life better">
+        <title>womdee product list</title>
+        <link rel="stylesheet" type="text/css" href="/css/inner.css" />
+    </head>
+    <body>
+    <include file="Public:top" />
+    <div class="wrap">
+        <div class="block">
+            <div class="position">
+                {:L('LABEL_YOUR_POSITION')} <a href="/" rel="nofollow">{:L('LABEL_HOME')}</a>
+                <volist name="category_array" id="category_val">
+                    &nbsp;<code>&gt;</code>
+                    <h1><a href="{$category_val['url']}">{$category_val['category_title']}</a></h1>
+                </volist>
+            </div>
+            <div class="cut_line">
+                <span class="left_line"></span><span class="right_line"></span>
+            </div>
+            <div class="sidebar">
+                <div class="sidebox">
+                    <p class="sidebar_title">Hot Sellers</p>
+                    <div class="line">
+                        <span class="left_line"></span><span class="right_line"></span>
+                    </div>
+                    <ul class="hot_list">
+                        <foreach name="hot_product" item="rs">
+                            <li>
+                                <a href="{:product_url($rs['item_title'],$rs['item_id'])}">
+                                    <span class="hot_list_pic">
+                                        <img src="/image_create.php?big_img={$rs['image_sku']}&item_id={$rs['item_id']}&size=hot_list">
+                                    </span>
+                                    {$rs['item_title']}
+                                </a>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="mainbar clearfix">
+                <ul class="product_slider pslider_list">
+                    <foreach name="product" item="rs">
+                        <li class="product_slider_item">
+                            <div class="product_slider_item_pic prodict-img">
+                                <a href="{:product_url($product_detail[$rs['item_id']],$rs['item_id'])}" title="{$product_detail[$rs['item_id']]}">
+                                    <img src="/image_create.php?big_img={$rs['image_sku']}&item_id={$rs['item_id']}&size=product_list" alt="{$product_detail[$rs['item_id']]}">
+                                </a>
+                            </div>
+                            <div class="product_slider_item_txt prodict-text">
+                                <h3>
+                                    <a href="{:product_url($product_detail[$rs['item_id']],$rs['item_id'])}" title="{$product_detail[$rs['item_id']]}">{$product_detail[$rs['item_id']]}</a>
+                                </h3>
+                                <p></p>
+                                <foreach name="attr_detail[$rs['item_id']]" item="attr" key="attr_name">
+                                    <p style="padding-top: 4px;">
+                                        <label>{$attr_name}: </label>
+                                        <foreach name="attr" item="val">
+                                            <span>{$val}&nbsp;&nbsp;</span>
+                                        </foreach>
+                                    </p>
+                                </foreach>
+                                
+                            </div>
+                        </li>
+                    </foreach>
+                </ul>
+                <if condition="$no_search_product eq true">
+                    <p>{:L('NO_RESULT_FOR_YOU')}</p>
+                </if>
+                <if condition="$device neq 'pc'">
+                    <p class="tc">
+                        <span class="loading">
+                            <img src="/image/loading.gif">
+                        </span>
+
+                        <a class="btn_more_product" cate-id="{$_GET['cateid']}" page="1" href="javascript:void(0);">{:L('LOAD_MORE')}</a>
+                    </p>
+                    <else />
+                    {$page_show}
+                </if>
+            </div>
+        </div>
+        <include file="Public:foot" />

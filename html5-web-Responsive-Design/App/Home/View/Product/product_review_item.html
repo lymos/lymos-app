@@ -1,0 +1,21 @@
+<foreach name="reviews" item="rs">
+    <div id="comment-{$rs['review_id']}" class="customer_comment_item">
+        <div class="customer_comment_user">
+            <div class="customer_comment_pic">
+                <img src="/image/person.png">
+            </div>
+            <p class="customer_comment_u_name">
+                <a>{$user_data[$rs['review_create_userid']]}</a>
+            </p>        
+        </div>        
+        <div class="customer_comment_ask">    
+            <h5 class="customer_comment_title">{$rs['review_title']}</h5>      
+            <div class="customer_comment_ask_content">
+                {$rs['review_content']}
+            </div>  
+            <div class="customer_comment_date_ask">
+                <span class="comment_dates">{$rs['review_create_time']}</span>
+            </div>
+        </div>
+    </div>
+</foreach>
