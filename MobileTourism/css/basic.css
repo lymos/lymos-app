@@ -1,0 +1,112 @@
+/* basic css */
+html, body, p, h1, h2, h3{
+	padding: 0;
+	margin: 0;
+}
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+div{
+	position: relative;
+}
+.header{
+	height: 40px;
+	width: 100%;
+	padding: 10px 20px;
+}
+.header-default{
+	background-color: #ffad8c;
+}
+.header .search-box{
+	float: left;
+	width: 80%;
+}
+.header .search-box input{
+	width: 100%;
+}
+.header .nav{
+	float: right;
+	padding-right: 18px;
+}
+.header .nav span::after{
+	content: "=";
+}
+.banner{
+	padding: 8px;
+	width: 100%;
+	min-height: 100px;
+	border-bottom: 1px solid #ccc;
+}
+.block-mixed, .block-bance{
+	width: 100% - 10px;
+	height: 100px;
+	margin: 10px;
+	border: 1px solid #88aeee;
+	border-radius: 6px;
+	overflow: hidden;
+}
+.block-mixed > .item-left{
+	float: left;
+	height: 100px;
+	width: 40%;
+}
+.block-mixed > .item-right{
+	float: left;
+	height: 100px;
+	width: 60%;
+}
+.block-mixed > .item-left .block-left{
+	height: 100px;
+	width: 100%;
+	background-color: #a413da;
+	border-right: 1px solid #fff;
+}
+.block-mixed > .item-right .block-item{
+	width: 100%
+}
+.block-item > div{
+	float: left;
+	height: 49.5px;
+	width: 50%;
+	background-color: #a413da;
+}
+.block-item > div:nth-child(1){
+	border-right: 1px solid #fff;
+}
+.block-item > div.item-top, .block-bance > .item div.item-top{
+	border-bottom: 1px solid #fff;
+}
+.block-bance > .item{
+	width: 100%;
+	height: 49.5px;
+}
+.block-bance > .item.n4 div{
+	float: left;
+	width: 25%;
+	height: 49.5px;
+	background-color: #0a890a;
+}
+.block-bance > .item div:not(:last-child){
+	border-right: 1px solid #fff;
+}
+.block-bance > .item.n2 div{
+	float: left;
+	width: 50%;
+	height: 49.5px;
+	background-color: #ccdd99;
+}
+.footer{
+	border-top: 1.2px solid #ccc;
+	height: 60px;
+	margin-top: 10px;
+	text-align: center;
+	padding: 10px 18px;
+	background-color: #eee;
+	color: #616161;
+}
+
+
+
