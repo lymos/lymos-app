@@ -1,0 +1,40 @@
+2016-03-29 03:10:59 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:10:58 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VvnyQu3p8R6FIVvuCNN3LwAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/backend/web/index.php'
+    'REMOTE_PORT' => '49499'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/yii2-advanced-demo/backend/web/'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/backend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221058.56
+    'REQUEST_TIME' => 1459221058
+]
