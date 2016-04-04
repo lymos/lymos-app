@@ -1,0 +1,1437 @@
+2016-03-29 03:10:59 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:10:58 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VvnyQu3p8R6FIVvuCNN3LwAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/backend/web/index.php'
+    'REMOTE_PORT' => '49499'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/yii2-advanced-demo/backend/web/'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/backend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221058.56
+    'REQUEST_TIME' => 1459221058
+]
+2016-04-04 12:14:22 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php:600
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(600): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(542): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(858): yii\db\Connection->open()
+#3 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(845): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Schema.php(477): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(754): yii\db\Schema->quoteValue('admin')
+#6 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(175): yii\db\Connection->quoteValue('admin')
+#7 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(809): yii\db\Command->getRawSql()
+#8 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetch', NULL)
+#9 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Query.php(247): yii\db\Command->queryOne()
+#10 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/ActiveQuery.php(290): yii\db\Query->one(NULL)
+#11 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#12 /var/www/html/lymos-app/lymos-oa/common/models/User.php(82): yii\db\BaseActiveRecord::findOne(Array)
+#13 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(73): common\models\User::findByUsername('admin')
+#14 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(44): common\models\LoginForm->getUser()
+#15 [internal function]: common\models\LoginForm->validatePassword('password', NULL)
+#16 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/validators/InlineValidator.php(69): call_user_func(Array, 'password', NULL)
+#17 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/validators/Validator.php(243): yii\validators\InlineValidator->validateAttribute(Object(common\models\LoginForm), 'password')
+#18 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Model.php(356): yii\validators\Validator->validateAttributes(Object(common\models\LoginForm), Array)
+#19 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(58): yii\base\Model->validate()
+#20 /var/www/html/lymos-app/lymos-oa/backend/controllers/SiteController.php(68): common\models\LoginForm->login()
+#21 [internal function]: backend\controllers\SiteController->actionLogin()
+#22 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#23 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#24 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#25 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#26 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#28 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php:547
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(858): yii\db\Connection->open()
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(845): yii\db\Connection->getMasterPdo()
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Schema.php(477): yii\db\Connection->getSlavePdo()
+#3 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Connection.php(754): yii\db\Schema->quoteValue('admin')
+#4 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(175): yii\db\Connection->quoteValue('admin')
+#5 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(809): yii\db\Command->getRawSql()
+#6 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetch', NULL)
+#7 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/Query.php(247): yii\db\Command->queryOne()
+#8 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/ActiveQuery.php(290): yii\db\Query->one(NULL)
+#9 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/db/BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#10 /var/www/html/lymos-app/lymos-oa/common/models/User.php(82): yii\db\BaseActiveRecord::findOne(Array)
+#11 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(73): common\models\User::findByUsername('admin')
+#12 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(44): common\models\LoginForm->getUser()
+#13 [internal function]: common\models\LoginForm->validatePassword('password', NULL)
+#14 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/validators/InlineValidator.php(69): call_user_func(Array, 'password', NULL)
+#15 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/validators/Validator.php(243): yii\validators\InlineValidator->validateAttribute(Object(common\models\LoginForm), 'password')
+#16 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Model.php(356): yii\validators\Validator->validateAttributes(Object(common\models\LoginForm), Array)
+#17 /var/www/html/lymos-app/lymos-oa/common/models/LoginForm.php(58): yii\base\Model->validate()
+#18 /var/www/html/lymos-app/lymos-oa/backend/controllers/SiteController.php(68): common\models\LoginForm->login()
+#19 [internal function]: backend\controllers\SiteController->actionLogin()
+#20 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#21 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#22 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#23 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#24 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#26 {main}
+Additional Information:
+
+2016-04-04 12:14:22 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'V1hQeGgyeXoAGmIALQEOFCAxPj4qXkkWHwgoSCtgNBUhEBkKB2JPSA=='
+    'LoginForm' => [
+        'username' => 'admin'
+        'password' => 'admin'
+        'rememberMe' => '0'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJank94wTj4g8I@mMFsjwAAAAc'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=site%2Flogin'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '168'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58002'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459772062.555
+    'REQUEST_TIME' => 1459772062
+]
+2016-04-04 12:23:52 [::1][-][-][error][yii\base\InvalidParamException] yii\base\InvalidParamException: The view file does not exist: /var/www/html/lymos-app/lymos-oa/backend/views/index/index.php in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/l...', Array, Object(backend\controllers\IndexController))
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(377): yii\base\View->render('index', Array, Object(backend\controllers\IndexController))
+#2 /var/www/html/lymos-app/lymos-oa/backend/controllers/IndexController.php(12): yii\base\Controller->render('index')
+#3 [internal function]: backend\controllers\IndexController->actionIndex()
+#4 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#7 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index', Array)
+#8 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#10 {main}
+2016-04-04 12:23:51 [::1][-][-][info][application] $_GET = [
+    'r' => 'index'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJc1-5V66hk8C7DGZL6TQAAAAE'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58038'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459772631.717
+    'REQUEST_TIME' => 1459772631
+]
+2016-04-04 13:10:15 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:10:15 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJnt2-5sDiJA21uF1GWGwAAAAQ'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58558'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775415.643
+    'REQUEST_TIME' => 1459775415
+]
+2016-04-04 13:13:19 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:13:19 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJobywlfDjaB-mn8YwuIAAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58559'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775599.363
+    'REQUEST_TIME' => 1459775599
+]
+2016-04-04 13:13:20 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:13:20 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJocCwlfDjaB-mn8YwuKQAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58559'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775600.618
+    'REQUEST_TIME' => 1459775600
+]
+2016-04-04 13:13:41 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu3 in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu3', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu3', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:13:41 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu3'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJohXPvnxFQ1Ngf1UqYQwAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58562'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu3'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu3'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775621.175
+    'REQUEST_TIME' => 1459775621
+]
+2016-04-04 13:13:42 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu3 in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu3', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu3', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:13:42 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu3'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJohnPvnxFQ1Ngf1UqYRQAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58562'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu3'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu3'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775622.482
+    'REQUEST_TIME' => 1459775622
+]
+2016-04-04 13:13:54 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/add in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('add', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/add', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:13:54 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/add'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJoktxeYN72lfzYSFOHewAAAAI'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58564'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/add'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/add'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775634.456
+    'REQUEST_TIME' => 1459775634
+]
+2016-04-04 13:14:07 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/add in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('add', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/add', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:14:07 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/add'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJon2wguHqLp8Rlvj1nhwAAAAk'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58566'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/add'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/add'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775647.099
+    'REQUEST_TIME' => 1459775647
+]
+2016-04-04 13:14:16 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/AddMenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('AddMenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/AddMenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:14:16 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/AddMenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJoqNMhsEyg1HWsTd2jogAAAAc'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58567'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/AddMenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/AddMenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775656.505
+    'REQUEST_TIME' => 1459775656
+]
+2016-04-04 13:14:32 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/AddMenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('AddMenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/AddMenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:14:32 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/AddMenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJouG-5sDiJA21uF1GWHQAAAAQ'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58568'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/AddMenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/AddMenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775672.36
+    'REQUEST_TIME' => 1459775672
+]
+2016-04-04 13:14:58 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/rtrwe in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('rtrwe', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/rtrwe', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:14:58 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/rtrwe'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJo0iwlfDjaB-mn8YwuMQAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58570'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/rtrwe'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/rtrwe'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775698.719
+    'REQUEST_TIME' => 1459775698
+]
+2016-04-04 13:15:28 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:15:28 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJo8N9b6Ip@dfMyr7oE5gAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58572'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775728.508
+    'REQUEST_TIME' => 1459775728
+]
+2016-04-04 13:15:46 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:15:46 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJpAnPvnxFQ1Ngf1UqYTgAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58573'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775746.976
+    'REQUEST_TIME' => 1459775746
+]
+2016-04-04 13:15:48 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:15:48 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJpBHPvnxFQ1Ngf1UqYVwAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58573'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775748.233
+    'REQUEST_TIME' => 1459775748
+]
+2016-04-04 13:15:49 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:15:49 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJpBXPvnxFQ1Ngf1UqYYAAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58573'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775749.552
+    'REQUEST_TIME' => 1459775749
+]
+2016-04-04 13:16:34 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:16:34 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJpMtxeYN72lfzYSFOHfQAAAAI'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58574'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775794.407
+    'REQUEST_TIME' => 1459775794
+]
+2016-04-04 13:16:57 [::1][-][331om74fldt0i941nkk696bvk3][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: index/addmenu in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php:96
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2016-04-04 13:16:57 [::1][-][331om74fldt0i941nkk696bvk3][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lymos-app/lymos-oa/backend/web/index.php'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJpSf5V66hk8C7DGZL6cgAAAAE'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58575'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459775817.213
+    'REQUEST_TIME' => 1459775817
+]
+2016-04-04 13:27:44 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in /var/www/html/lymos-app/lymos-oa/backend/views/index/menuEdit.php:13
+Stack trace:
+#0 {main}
+2016-04-04 13:27:44 [::1][-][-][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJr0CwlfDjaB-mn8YwuPAAAAAg'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58598'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459776464.022
+    'REQUEST_TIME' => 1459776464
+]
+2016-04-04 13:33:10 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in /var/www/html/lymos-app/lymos-oa/backend/views/index/menuEdit.php:13
+Stack trace:
+#0 {main}
+2016-04-04 13:33:10 [::1][-][-][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJtFlxIZ34SiGSzq6TsOgAAAAM'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58601'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459776790.276
+    'REQUEST_TIME' => 1459776790
+]
+2016-04-04 13:33:11 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in /var/www/html/lymos-app/lymos-oa/backend/views/index/menuEdit.php:13
+Stack trace:
+#0 {main}
+2016-04-04 13:33:11 [::1][-][-][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJtF99b6Ip@dfMyr7oE6AAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lymos-app/lymos-oa/backend/web/index.php?r=index'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58602'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459776791.671
+    'REQUEST_TIME' => 1459776791
+]
+2016-04-04 13:33:31 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in /var/www/html/lymos-app/lymos-oa/backend/views/index/menuEdit.php:13
+Stack trace:
+#0 {main}
+2016-04-04 13:33:31 [::1][-][-][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJtK3PvnxFQ1Ngf1UqYaQAAAAU'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58603'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459776811.129
+    'REQUEST_TIME' => 1459776811
+]
+2016-04-04 13:35:23 [::1][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: backend\models\MenuModel::parent_id in /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Component.php:143
+Stack trace:
+#0 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/helpers/BaseHtml.php(2051): yii\base\Component->__get('parent_id')
+#1 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/helpers/BaseHtml.php(1226): yii\helpers\BaseHtml::getAttributeValue(Object(backend\models\MenuModel), 'parent_id')
+#2 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/helpers/BaseHtml.php(1316): yii\helpers\BaseHtml::activeInput('password', Object(backend\models\MenuModel), 'parent_id', Array)
+#3 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/widgets/ActiveField.php(409): yii\helpers\BaseHtml::activePasswordInput(Object(backend\models\MenuModel), 'parent_id', Array)
+#4 /var/www/html/lymos-app/lymos-oa/backend/views/index/menuEdit.php(13): yii\widgets\ActiveField->passwordInput()
+#5 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/l...')
+#6 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/l...', Array)
+#7 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/l...', Array, Object(backend\controllers\IndexController))
+#8 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(377): yii\base\View->render('menuEdit', Array, Object(backend\controllers\IndexController))
+#9 /var/www/html/lymos-app/lymos-oa/backend/controllers/IndexController.php(18): yii\base\Controller->render('menuEdit', Array)
+#10 [internal function]: backend\controllers\IndexController->actionAddmenu()
+#11 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('addmenu', Array)
+#14 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('index/addmenu', Array)
+#15 /var/www/html/lymos-app/lymos-oa/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/lymos-app/lymos-oa/backend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-04-04 13:35:23 [::1][-][-][info][application] $_GET = [
+    'r' => 'index/addmenu'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '331om74fldt0i941nkk696bvk3'
+    '_csrf' => '0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"WB2xE3wnwinFBl0lHPx0CRMovHIroP62\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VwJtm9xeYN72lfzYSFOHkQAAAAI'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=331om74fldt0i941nkk696bvk3; _csrf=0f211ccc38631ea7b955a76e2196aed54d078f4904ea8398b01cfb102e7698a7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WB2xE3wnwinFBl0lHPx0CRMovHIroP62%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lymos-app/lymos-oa/backend/web/index.php'
+    'REMOTE_PORT' => '58606'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=index/addmenu'
+    'REQUEST_URI' => '/lymos-app/lymos-oa/backend/web/index.php?r=index/addmenu'
+    'SCRIPT_NAME' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'PHP_SELF' => '/lymos-app/lymos-oa/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459776923.627
+    'REQUEST_TIME' => 1459776923
+]

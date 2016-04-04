@@ -1,0 +1,411 @@
+2016-03-29 03:11:47 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:11:46 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VvnycgTK5psUV6-NLsQp1QAAAAo'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49519'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221106.605
+    'REQUEST_TIME' => 1459221106
+]
+2016-03-29 03:12:33 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:12:33 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VvnyoSLRxrKhO3H3nl3LdwAAAAw'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49539'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221153.749
+    'REQUEST_TIME' => 1459221153
+]
+2016-03-29 03:12:46 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:12:43 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_GET = [
+    'r' => 'site/contact'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+    '__captcha/site/captcha' => 'tigoeap'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'Vvnyq5UVYOUM3JuoBeOm3QAAAAM'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/index.php?r=site%2Fabout'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49543'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Fcontact'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Fcontact'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221163.964
+    'REQUEST_TIME' => 1459221163
+]
+2016-03-29 03:12:48 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:12:46 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_GET = [
+    'r' => 'site/captcha'
+    'v' => '56f9f2ae5949d'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+    '__captcha/site/captcha' => 'tigoeap'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'Vvnyri8FEInzW4@d-GQjvwAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'image/png,image/*;q=0.8,*/*;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/index.php?r=site%2Fcontact'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49546'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Fcaptcha&v=56f9f2ae5949d'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Fcaptcha&v=56f9f2ae5949d'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221166.419
+    'REQUEST_TIME' => 1459221166
+]
+2016-03-29 03:13:42 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:13:42 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_GET = [
+    'r' => 'site/request-password-reset'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+    '__captcha/site/captcha' => 'tigoeap'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'Vvny5tt7zk5pdXRC55ITFgAAAAI'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49558'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Frequest-password-reset'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Frequest-password-reset'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221222.252
+    'REQUEST_TIME' => 1459221222
+]
+2016-03-29 03:13:58 [::1][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php:600
+Stack trace:
+#0 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(600): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(542): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(858): yii\db\Connection->open()
+#3 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(845): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Schema.php(477): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(754): yii\db\Schema->quoteValue('sssssssss@12.co...')
+#6 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(175): yii\db\Connection->quoteValue('sssssssss@12.co...')
+#7 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(809): yii\db\Command->getRawSql()
+#8 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(388): yii\db\Command->queryInternal('fetchColumn', 0)
+#9 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Query.php(367): yii\db\Command->queryScalar()
+#10 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/validators/ExistValidator.php(117): yii\db\Query->exists()
+#11 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/validators/Validator.php(243): yii\validators\ExistValidator->validateAttribute(Object(frontend\models\PasswordResetRequestForm), 'email')
+#12 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Model.php(356): yii\validators\Validator->validateAttributes(Object(frontend\models\PasswordResetRequestForm), Array)
+#13 /var/www/html/yii2-advanced-demo/frontend/controllers/SiteController.php(173): yii\base\Model->validate()
+#14 [internal function]: frontend\controllers\SiteController->actionRequestPasswordReset()
+#15 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#16 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#17 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('request-passwor...', Array)
+#18 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/request-pa...', Array)
+#19 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 /var/www/html/yii2-advanced-demo/frontend/web/index.php(18): yii\base\Application->run()
+#21 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php:547
+Stack trace:
+#0 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(858): yii\db\Connection->open()
+#1 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(845): yii\db\Connection->getMasterPdo()
+#2 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Schema.php(477): yii\db\Connection->getSlavePdo()
+#3 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Connection.php(754): yii\db\Schema->quoteValue('sssssssss@12.co...')
+#4 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(175): yii\db\Connection->quoteValue('sssssssss@12.co...')
+#5 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(809): yii\db\Command->getRawSql()
+#6 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Command.php(388): yii\db\Command->queryInternal('fetchColumn', 0)
+#7 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/db/Query.php(367): yii\db\Command->queryScalar()
+#8 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/validators/ExistValidator.php(117): yii\db\Query->exists()
+#9 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/validators/Validator.php(243): yii\validators\ExistValidator->validateAttribute(Object(frontend\models\PasswordResetRequestForm), 'email')
+#10 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Model.php(356): yii\validators\Validator->validateAttributes(Object(frontend\models\PasswordResetRequestForm), Array)
+#11 /var/www/html/yii2-advanced-demo/frontend/controllers/SiteController.php(173): yii\base\Model->validate()
+#12 [internal function]: frontend\controllers\SiteController->actionRequestPasswordReset()
+#13 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#14 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#15 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('request-passwor...', Array)
+#16 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/request-pa...', Array)
+#17 /var/www/html/yii2-advanced-demo/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#18 /var/www/html/yii2-advanced-demo/frontend/web/index.php(18): yii\base\Application->run()
+#19 {main}
+Additional Information:
+
+2016-03-29 03:13:58 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/request-password-reset'
+]
+
+$_POST = [
+    '_csrf' => 'RGtVWmFhcWo9JQFuBCU2XSM/Lz0XKgIoIR08Hw8gPAYOJWArIyUXJg=='
+    'PasswordResetRequestForm' => [
+        'email' => 'sssssssss@12.com'
+    ]
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'Vvny9i8FEInzW4@d-GQjwAAAAAA'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/index.php?r=site%2Frequest-password-reset'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '123'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49560'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Frequest-password-reset'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Frequest-password-reset'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221238.522
+    'REQUEST_TIME' => 1459221238
+]
+2016-03-29 03:14:19 [::1][-][e612kan2nbn810h17kjtopa4s2][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/lib64/php/modules/libevent.so' - /usr/lib64/php/modules/libevent.so: undefined symbol: zval_used_for_init in Unknown:0
+Stack trace:
+#0 {main}
+2016-03-29 03:14:19 [::1][-][e612kan2nbn810h17kjtopa4s2][info][application] $_GET = [
+    'r' => 'site/request-password-reset'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'e612kan2nbn810h17kjtopa4s2'
+    '_csrf' => 'dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/yii2-advanced-demo/backend/web/'
+    '__captcha/site/captcha' => 'tigoeap'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'VvnzCm3jVcAijbk1vRCGGQAAAAk'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/yii2-advanced-demo/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_COOKIE' => 'PHPSESSID=e612kan2nbn810h17kjtopa4s2; _csrf=dd0f8b47529651fb6119284dadbee236fef374e575c22895a7214c6060cf45fca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22yNT4eDG7gTzgvKsBeviEnAMlJN5qBDfL%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.6 (CentOS) PHP/7.0.4'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/yii2-advanced-demo/frontend/web/index.php'
+    'REMOTE_PORT' => '49562'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Frequest-password-reset'
+    'REQUEST_URI' => '/yii2-advanced-demo/frontend/web/index.php?r=site%2Frequest-password-reset'
+    'SCRIPT_NAME' => '/yii2-advanced-demo/frontend/web/index.php'
+    'PHP_SELF' => '/yii2-advanced-demo/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1459221258.999
+    'REQUEST_TIME' => 1459221258
+]
