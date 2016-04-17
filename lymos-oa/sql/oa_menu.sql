@@ -11,4 +11,5 @@ create table oa_menu(
 	primary key(menu_id),
 	unique key(name),
 	key i_name(name),
+	key i_parent_id (parent_id)
 )ENGINE=InnoDB default charset=utf8 comment "menu table";
