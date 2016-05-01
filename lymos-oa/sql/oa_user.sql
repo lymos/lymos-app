@@ -14,6 +14,5 @@ create table oa_user(
 
 	primary key(userid),
 	unique key(username),
-	key i_username(username),
 	key i_email (email)
 )ENGINE=InnoDB default charset=utf8 comment "user table";

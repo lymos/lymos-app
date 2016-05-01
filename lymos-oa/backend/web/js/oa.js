@@ -33,10 +33,29 @@
 			});
 		},
 		ajaxCallback: function(data){
-
+			if(! data.status){
+				alert(data.message);
+				return false;
+			}
+			switch(data.return_type){
+				case "list_add":
+					oa.callbackListAdd(data);
+					break;
+				case "list_delete":
+					oa.callbackListDelete(data);
+					break;
+			}		
 		},
 		load: function(){
 			$.load(url, data);
+		},
+		callbackListAdd: function(params){
+			var $list_body = $("#list-body"),
+				html = "<tr><td colspan='5'>ssss</td></tr>";
+			$list_body.before(html);
+		},
+		callbackListDelete: function(params){
+
 		}
 	}
 	window.oa = oa;

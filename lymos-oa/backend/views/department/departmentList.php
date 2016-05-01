@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 <div class="col-sm-9">
 <ol class="breadcrumb">
 	<li><a href="#">Home</a></li>
-	<li class="active">MenuList</li>
+	<li class="active">DepartmentList</li>
 </ol>
 <button class="btn btn-default" type="button" data-toggle="modal" data-target="#add-box">
 	<span class="glyphicon glyphicon-plus-sign"></span>
@@ -20,12 +20,12 @@ use yii\bootstrap\ActiveForm;
 				<button class="close" type="button" data-dismiss="modal">
 					<span>&times;</span>
 				</button>
-				<h4 class="modal-title">menu add</h4>
+				<h4 class="modal-title">deparment add</h4>
 			</div>
 			<?php $form = ActiveForm::begin(['layout' => 'horizontal', 'action' => ['menu/add']]); ?>
 			<div class="modal-body">
 				<?= $form->field($model, 'parent_id')->dropDownList($parent_list); ?>
-				<?= $form->field($model, 'name')->textInput(); ?>
+				<?= $form->field($model, 'department_name')->textInput(); ?>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-default" type="button" data-dismiss="modal">close</button>
@@ -39,17 +39,17 @@ use yii\bootstrap\ActiveForm;
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>Name</th>
+			<th>Department Name</th>
 			<th>ParentID</th>
 			<th>addTime</th>
 			<th>action</th>
 		</tr>
 	</thead>
 	<tbody id="list-body">
-		<?php foreach($menu_list as $rs): ?>
+		<?php foreach($department_list as $rs): ?>
 		<tr>
 			<td><?= Html::encode($rs['menu_id']) ?></td>
-			<td><?= Html::encode($rs['name']) ?></td>
+			<td><?= Html::encode($rs['department_name']) ?></td>
 			<td><?= Html::encode($rs['parent_id']) ?></td>
 			<td><?= Html::encode($rs['added_time']) ?></td>
 			<td>

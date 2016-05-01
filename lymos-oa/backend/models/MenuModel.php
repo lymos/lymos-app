@@ -6,11 +6,16 @@ use yii\base\Model;
 class MenuModel extends Model{
 	public $parent_id;
 	public $name;
+	public $parent;
 
 	public static function add($data){
-		return \Yii::$app->db->createCommand()
+		$status = \Yii::$app->db->createCommand()
 			->insert('oa_menu', $data)
 			->execute();	
+		if($status){
+			return \Yii::$app->db->getLastInsertID();
+		}
+		return $status;
 	}
 
 	public static function get($fields = false, $where = false, $group_by = false, $order_by = false, $limit = false){
